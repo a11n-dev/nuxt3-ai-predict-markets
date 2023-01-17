@@ -40,7 +40,7 @@
             </div>
 
             <div class="option">
-              <h5 class="modal-sub-title">Date</h5>
+              <h5 class="modal-sub-title">Article Date</h5>
 
               <input
                 type="text"
@@ -138,6 +138,8 @@
 
 <script setup>
 import MicroModal from "micromodal";
+import { createToast } from "mosha-vue-toastify";
+const { $socket } = useNuxtApp();
 
 const marketCategory = ref(null);
 const articleCategory = ref(null);
@@ -167,12 +169,67 @@ function trainModel() {
     !articleDate.value ||
     !articleResult.value ||
     !articleText.value
-  )
-    return;
+  ) {
+    createToast(
+      {
+        title: "Warning",
+        description:
+          "It looks like you missed some data",
+      },
+      { type: "warning", showIcon: true, transition: "slide" }
+    );
 
-  articleResult.value = null;
-  articleDate.value = "";
-  articleText.value = "";
+    return;
+  }
+
+  try {
+    const data = {
+      text: articleText.value,
+      user: localStorage.getItem("aiUserUID"),
+      marketCategory: marketCategory.value,
+      articleCategory: articleCategory.value,
+      articleDate: articleDate.value,
+      articleResult: articleResult.value,
+    };
+
+    $socket.emit("add-article", data, (response) => {
+      if (!response.error) {
+        createToast(
+          {
+            title: "Success",
+            description: "Model successfully trained",
+          },
+          { type: "success", showIcon: true, transition: "slide" }
+        );
+
+        articleResult.value = null;
+        articleDate.value = "";
+        articleText.value = "";
+      } else {
+        createToast(
+          {
+            title: "Error",
+            description:
+              "There was a problem in the process. Look at the console for details",
+          },
+          { type: "warning", showIcon: true, transition: "slide" }
+        );
+
+        console.error(response);
+      }
+    });
+  } catch (error) {
+    createToast(
+      {
+        title: "Error",
+        description:
+          "There was a problem in the process. Look at the console for details",
+      },
+      { type: "warning", showIcon: true, transition: "slide" }
+    );
+
+    console.error(error);
+  }
 }
 </script>
 

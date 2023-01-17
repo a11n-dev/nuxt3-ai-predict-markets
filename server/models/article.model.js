@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const ArticlesSchema = new Schema(
+const ArticleSchema = new Schema(
   {
     text: { type: String, required: true },
     user: { type: String, required: true },
@@ -13,6 +13,6 @@ const ArticlesSchema = new Schema(
   { collection: "articles" }
 );
 
-const Articles = model("Articles", ArticlesSchema);
+const Article = model("Article", ArticleSchema);
 
-module.exports = { ArticlesSchema, Articles };
+module.exports = { ArticleSchema, Article };

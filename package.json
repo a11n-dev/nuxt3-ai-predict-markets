@@ -5,7 +5,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "nuxt": "3.0.0",
@@ -14,8 +15,12 @@
   },
   "dependencies": {
     "micromodal": "^0.4.10",
+    "mongoose": "^6.8.3",
+    "mosha-vue-toastify": "^1.0.23",
     "socket.io": "^4.5.2",
-    "socket.io-client": "^4.5.3",
-    "mongoose": "^6.8.3"
+    "socket.io-client": "^4.5.3"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

@@ -16,23 +16,28 @@ export default defineEventHandler(async (event) => {
   }
 
   io.on("connection", (socket) => {
-    console.log("Connected", socket);
+    console.log("Connected", socket.id);
 
     socket.on("disconnecting", () => {
-      console.log("Disconnected", socket);
+      console.log("Disconnected", socket.id);
     });
 
-    socket.on("addArticle", async (data, cb) => {
-      const response = await Article.create({
-        text: data.text,
-        user: data.user,
-        marketCategory: data.marketCategory,
-        articleCategory: data.articleCategory,
-        articleDate: Date.now(),
-        articleResult: data.result,
-      });
+    socket.on("add-article", async (data, cb) => {
+      try {
+        
+        const response = await Article.create({
+          text: data.text,
+          user: data.user,
+          marketCategory: data.marketCategory,
+          articleCategory: data.articleCategory,
+          articleDate: Date.now(),
+          articleResult: data.articleResult,
+        });
 
-      cb(response);
+        cb(response);
+      } catch (error) {
+        cb(error);
+      }
     });
   });
 });

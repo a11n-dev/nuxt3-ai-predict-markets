@@ -17,7 +17,7 @@
 <script setup>
 const router = useRouter();
 const isLoggedIn = computed(() => {
-  return localStorage.getItem("aiUserUID");
+  return localStorage?.getItem("aiUserUID");
 });
 
 onBeforeMount(() => {
@@ -28,6 +28,8 @@ onBeforeMount(() => {
 </script>
 
 <style lang="scss">
+@import "mosha-vue-toastify/dist/style.css";
+
 * {
   outline: none;
   box-sizing: border-box;
@@ -291,5 +293,11 @@ button {
 .micromodal-slide .modal__container,
 .micromodal-slide .modal__overlay {
   will-change: transform;
+}
+
+// Notifications
+
+.mosha__toast {
+  z-index: 9999999999 !important;
 }
 </style>

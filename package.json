@@ -8,6 +8,14 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0"
+    "nuxt": "3.0.0",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.1.0"
+  },
+  "dependencies": {
+    "micromodal": "^0.4.10",
+    "socket.io": "^4.5.2",
+    "socket.io-client": "^4.5.3",
+    "mongoose": "^6.8.3"
   }
 }

@@ -32,6 +32,7 @@ export default defineEventHandler(async (event) => {
           articleCategory: data.articleCategory,
           articleDate: Date.now(),
           articleResult: data.articleResult,
+          articleLink: data.articleLink,
         });
 
         cb(response);

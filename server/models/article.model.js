@@ -8,6 +8,7 @@ const ArticleSchema = new Schema(
     articleCategory: { type: String, required: true },
     articleDate: { type: String, required: true },
     articleResult: { type: String, required: true },
+    articleLink: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
   },
   { collection: "articles" }

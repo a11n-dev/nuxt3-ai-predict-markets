@@ -15,16 +15,19 @@
           <h3 class="modal-title">Enter article options</h3>
 
           <div class="option-list">
-            <div class="option">
+            <div class="option option-market">
               <h5 class="modal-sub-title">Market Category</h5>
 
-              <input
-                type="text"
-                name=""
-                id=""
-                placeholder="Ex: Crypto/Stock"
-                v-model="marketCategory"
-              />
+              <ul>
+                <li
+                  v-for="market in markets"
+                  :key="market"
+                  @click="marketCategory = market.name"
+                  :class="{ active: marketCategory == market.name }"
+                >
+                  {{ market.name }}
+                </li>
+              </ul>
             </div>
 
             <div class="option">
@@ -36,6 +39,18 @@
                 id=""
                 placeholder="Ex: Bitcoin/Apple Inc."
                 v-model="articleCategory"
+              />
+            </div>
+
+            <div class="option">
+              <h5 class="modal-sub-title">Article Link</h5>
+
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Ex: https://example.com/post"
+                v-model="articleLink"
               />
             </div>
 
@@ -141,11 +156,21 @@ import MicroModal from "micromodal";
 import { createToast } from "mosha-vue-toastify";
 const { $socket } = useNuxtApp();
 
-const marketCategory = ref(null);
+const marketCategory = ref('Crypto');
 const articleCategory = ref(null);
 const articleDate = ref(null);
 const articleResult = ref(null);
 const articleText = ref(null);
+const articleLink = ref(null);
+
+const markets = ref([
+  {
+    name: "Crypto",
+  },
+  {
+    name: "Stock",
+  },
+]);
 
 const results = ref([
   {
@@ -168,13 +193,13 @@ function trainModel() {
     !articleCategory.value ||
     !articleDate.value ||
     !articleResult.value ||
-    !articleText.value
+    !articleText.value || 
+    !articleLink.value
   ) {
     createToast(
       {
         title: "Warning",
-        description:
-          "It looks like you missed some data",
+        description: "It looks like you missed some data",
       },
       { type: "warning", showIcon: true, transition: "slide" }
     );
@@ -184,12 +209,13 @@ function trainModel() {
 
   try {
     const data = {
-      text: articleText.value,
+      text: articleText.value.toLowerCase(),
       user: localStorage.getItem("aiUserUID"),
-      marketCategory: marketCategory.value,
-      articleCategory: articleCategory.value,
+      marketCategory: marketCategory.value.toLowerCase(),
+      articleCategory: articleCategory.value.toLowerCase(),
       articleDate: articleDate.value,
       articleResult: articleResult.value,
+      articleLink: articleLink.value,
     };
 
     $socket.emit("add-article", data, (response) => {
@@ -205,6 +231,7 @@ function trainModel() {
         articleResult.value = null;
         articleDate.value = "";
         articleText.value = "";
+        articleLink.value = "";
       } else {
         createToast(
           {
@@ -277,6 +304,36 @@ function trainModel() {
             padding: 10px;
             font-size: 14px;
             width: 100%;
+          }
+
+          &-market{
+            ul{
+              width: 100%;
+              display: flex;
+              background: #0000000f;
+              border-radius: 12px;
+              padding: 4px;
+
+              li{
+                color: #202123;
+                width: 50%;
+                text-align: center;
+                padding: 6px 0;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                
+                &:not(.active):hover{
+                  opacity: .7;
+                }
+
+                &.active{
+                  background: #202123;
+                  border-radius: 10px;
+                  color: #fff;
+                }
+              }
+            }
           }
 
           &-select {

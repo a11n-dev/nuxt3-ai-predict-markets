@@ -29,7 +29,7 @@
 
 <script setup>
 const router = useRouter();
-const uid = ref(localStorage.getItem("aiUserUID"));
+const uid = ref(localStorage?.getItem("aiUserUID"));
 
 const links = ref([
   {

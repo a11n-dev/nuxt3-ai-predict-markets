@@ -1,16 +1,16 @@
 <template>
-  <div class="menu h-100 p-4 d-flex flex-column justify-content-between">
+  <div class="menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]">
     <div class="navigation">
-      <small class="d-block mb-3 text-center">id: {{ uid }}</small>
+      <small class="block mb-3 text-center">id: {{ uid }}</small>
 
-      <nav>
+      <nav class="flex flex-col gap-6">
         <li
           v-for="link in links.filter((el) => !el.disabled)"
           class="w-100"
           :class="{ active: $route.path == link.path }"
           :key="link"
         >
-          <NuxtLink :to="link.path">
+          <NuxtLink class="flex align-center gap-10 p-3" :to="link.path">
             <img :src="link.iconPath" />
             <span>{{ link.name }}</span>
           </NuxtLink>
@@ -19,8 +19,14 @@
     </div>
 
     <div class="actions">
-      <button class="w-100" @click="logout()">
-        <img src="/icons/login.svg" alt="" />
+      <button
+        class="w-100"
+        @click="logout()"
+      >
+        <img
+          src="/icons/login.svg"
+          alt=""
+        />
         <span>Log out</span>
       </button>
     </div>
@@ -48,25 +54,15 @@ const links = ref([
 
 function logout() {
   localStorage.removeItem("aiUserUID");
-  location.href = '/'
+  location.href = "/";
 }
 </script>
 
 <style lang="scss">
 .menu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 280px;
-  background-color: #202123;
-
   .navigation {
     nav {
       li {
-        &:not(:last-of-type) {
-          margin-bottom: 6px;
-        }
-
         &.active {
           a {
             background-color: #343541;

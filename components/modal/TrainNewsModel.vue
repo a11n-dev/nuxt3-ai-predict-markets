@@ -4,9 +4,13 @@
     id="modal-train-news-model"
     aria-hidden="true"
   >
-    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div
+      class="modal__overlay"
+      tabindex="-1"
+      data-micromodal-close
+    >
       <div
-        class="modal__container d-flex"
+        class="modal__container flex"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-form-title"
@@ -76,7 +80,10 @@
                   :class="{ active: articleResult == result.name }"
                   @click="articleResult = result.name"
                 >
-                  <img :src="result.iconPath" alt="" />
+                  <img
+                    :src="result.iconPath"
+                    alt=""
+                  />
                 </li>
               </ul>
             </div>
@@ -84,24 +91,20 @@
         </div>
 
         <div class="modal__container-right">
-          <div
-            class="
-              modal__container-right-header
-              d-flex
-              justify-content-between
-              align-items-center
-            "
-          >
+          <div class="modal__container-right-header flex justify-between align-center">
             <button class=""></button>
 
             <div class="title">
               <h3>Input article text</h3>
             </div>
 
-            <button class="close-modal-button" data-micromodal-close>
+            <button
+              class="close-modal-button"
+              data-micromodal-close
+            >
               <svg
                 aria-hidden="true"
-                fill="none"
+                fill="#202123"
                 height="10"
                 viewBox="0 0 10 10"
                 width="10"
@@ -109,38 +112,23 @@
               >
                 <path
                   d="M1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L3.58579 5L0.292893 8.29289C-0.0976311 8.68342 -0.0976311 9.31658 0.292893 9.70711C0.683417 10.0976 1.31658 10.0976 1.70711 9.70711L5 6.41421L8.29289 9.70711C8.68342 10.0976 9.31658 10.0976 9.70711 9.70711C10.0976 9.31658 10.0976 8.68342 9.70711 8.29289L6.41421 5L9.70711 1.70711C10.0976 1.31658 10.0976 0.683417 9.70711 0.292893C9.31658 -0.0976311 8.68342 -0.0976311 8.29289 0.292893L5 3.58579L1.70711 0.292893Z"
-                  fill="currentColor"
+                  fill="#202123"
                 ></path>
               </svg>
             </button>
           </div>
-          <div
-            class="
-              modal__container-right-content
-              h-100
-              d-flex
-              flex-column
-              align-items-center
-              justify-content-center
-            "
-          >
+          <div class="modal__container-right-content h-full flex flex-col align-center justify-center">
             <textarea
-              name=""
-              id=""
               cols="30"
               rows="10"
               v-model="articleText"
             ></textarea>
           </div>
-          <div
-            class="
-              modal__container-right-footer
-              d-flex
-              justify-content-between
-              align-items-center
-            "
-          >
-            <button class="btn btn-fill w-100" @click="trainModel()">
+          <div class="modal__container-right-footer flex justify-between align-center">
+            <button
+              class="btn btn-fill w-full"
+              @click="trainModel()"
+            >
               Train the model
             </button>
           </div>
@@ -150,13 +138,12 @@
   </div>
 </template>
 
-
 <script setup>
 import MicroModal from "micromodal";
 import { createToast } from "mosha-vue-toastify";
 const { $socket } = useNuxtApp();
 
-const marketCategory = ref('Crypto');
+const marketCategory = ref("Crypto");
 const articleCategory = ref(null);
 const articleDate = ref(null);
 const articleResult = ref(null);
@@ -188,14 +175,7 @@ const results = ref([
 ]);
 
 function trainModel() {
-  if (
-    !marketCategory.value ||
-    !articleCategory.value ||
-    !articleDate.value ||
-    !articleResult.value ||
-    !articleText.value || 
-    !articleLink.value
-  ) {
+  if (!marketCategory.value || !articleCategory.value || !articleDate.value || !articleResult.value || !articleText.value || !articleLink.value) {
     createToast(
       {
         title: "Warning",
@@ -219,7 +199,7 @@ function trainModel() {
     };
 
     $socket.emit("add-article", data, (response) => {
-      if (!response.error) {
+      if (!response.err) {
         createToast(
           {
             title: "Success",
@@ -236,8 +216,7 @@ function trainModel() {
         createToast(
           {
             title: "Error",
-            description:
-              "There was a problem in the process. Look at the console for details",
+            description: "There was a problem in the process. Look at the console for details",
           },
           { type: "warning", showIcon: true, transition: "slide" }
         );
@@ -249,8 +228,7 @@ function trainModel() {
     createToast(
       {
         title: "Error",
-        description:
-          "There was a problem in the process. Look at the console for details",
+        description: "There was a problem in the process. Look at the console for details",
       },
       { type: "warning", showIcon: true, transition: "slide" }
     );
@@ -306,15 +284,15 @@ function trainModel() {
             width: 100%;
           }
 
-          &-market{
-            ul{
+          &-market {
+            ul {
               width: 100%;
               display: flex;
               background: #0000000f;
               border-radius: 12px;
               padding: 4px;
 
-              li{
+              li {
                 color: #202123;
                 width: 50%;
                 text-align: center;
@@ -322,12 +300,12 @@ function trainModel() {
                 font-size: 14px;
                 font-weight: 500;
                 cursor: pointer;
-                
-                &:not(.active):hover{
-                  opacity: .7;
+
+                &:not(.active):hover {
+                  opacity: 0.7;
                 }
 
-                &.active{
+                &.active {
                   background: #202123;
                   border-radius: 10px;
                   color: #fff;

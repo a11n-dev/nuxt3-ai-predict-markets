@@ -1,14 +1,14 @@
 <template>
-  <div class="layout vh-100" v-if="isLoggedIn">
-    <Menu />
+  <div class="layout h-screen">
+    <template v-if="isLoggedIn">
+      <Menu />
 
-    <div class="app-content h-100">
-      <NuxtPage />
-    </div>
-  </div>
+      <div class="app-content relative h-full overflow-hidden ml-[260px] bg-[#343540]">
+        <NuxtPage />
+      </div>
+    </template>
 
-  <div class="layout vh-100" v-else>
-    <NuxtPage />
+    <NuxtPage v-else />
   </div>
 
   <ModalTrainNewsModel />
@@ -116,15 +116,6 @@ button {
   -webkit-line-clamp: 1;
   line-clamp: 1;
   -webkit-box-orient: vertical;
-}
-
-.app-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 280px;
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
 }
 
 .btn {

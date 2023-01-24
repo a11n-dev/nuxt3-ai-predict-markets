@@ -2,8 +2,8 @@ import { Server } from "socket.io";
 import mongoose from "mongoose";
 
 // AI
+import tf from "@tensorflow/tfjs-node";
 import natural from "natural";
-import * as tf from "@tensorflow/tfjs-node";
 
 const tokenizer = new natural.WordTokenizer();
 let uniqueWords = new Set();

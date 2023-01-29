@@ -11,4 +11,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     mgdbUri: process.env.MONGODB_URI,
   },
+
+  build: {
+    analyze: true
+  },
 });

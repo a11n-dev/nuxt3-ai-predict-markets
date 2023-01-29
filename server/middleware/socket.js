@@ -1,7 +1,7 @@
 import { Server } from "socket.io";
 
 // AI
-import tf from "@tensorflow/tfjs-node";
+import * as tf from "@tensorflow/tfjs-node";
 import natural from "natural";
 
 let uniqueWords = new Set();

@@ -108,3 +108,6 @@ export default defineNitroPlugin(() => {
     },
   };
 });
+
+
+"brain.js": "^2.0.0-beta.18",

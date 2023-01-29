@@ -1,7 +1,15 @@
 <template>
   <div class="menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]">
     <div class="navigation">
-      <small class="block mb-3 text-center">id: {{ uid }}</small>
+      <small class="block text-center text-sm"> id: {{ uid }} </small>
+      <div class="model-status flex items-center justify-center mb-3 text-center text-sm">
+        model status
+
+        <span
+          class="block w-2 h-2 rounded-full ml-1"
+          :class="{ green: !modelTraining, red: modelTraining }"
+        ></span>
+      </div>
 
       <nav class="flex flex-col gap-6">
         <li
@@ -10,7 +18,10 @@
           :class="{ active: $route.path == link.path }"
           :key="link"
         >
-          <NuxtLink class="flex align-center gap-10 p-3" :to="link.path">
+          <NuxtLink
+            class="flex align-center gap-10 p-3"
+            :to="link.path"
+          >
             <img :src="link.iconPath" />
             <span>{{ link.name }}</span>
           </NuxtLink>
@@ -36,6 +47,15 @@
 <script setup>
 const router = useRouter();
 const uid = ref(localStorage?.getItem("aiUserUID"));
+const { $socket } = useNuxtApp();
+
+const modelTraining = ref(true);
+
+onMounted(() => {
+  $socket.on("model-training-status", (data) => {
+    modelTraining.value = data;
+  });
+});
 
 const links = ref([
   {
@@ -87,6 +107,18 @@ function logout() {
             color: #fff;
           }
         }
+      }
+    }
+  }
+
+  .model-status {
+    span {
+      &.gren {
+        background: #3bada9;
+      }
+
+      &.red {
+        background: #f95049;
       }
     }
   }

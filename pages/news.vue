@@ -196,8 +196,6 @@
       </form>
     </div>
   </div>
-
-  <Loader v-if="loading" />
 </template>
 
 <script setup>
@@ -206,8 +204,7 @@ import { createToast } from "mosha-vue-toastify";
 
 const { $socket } = useNuxtApp();
 
-const loading = ref(false);
-const modelLoaded = ref(false);
+const modelTraining = ref(true);
 
 // DOM elements
 const textarea = ref(null);
@@ -216,6 +213,12 @@ const textarea = ref(null);
 const article = ref(null);
 const chat = ref([]);
 
+onMounted(() => {
+  $socket.on("model-training-status", (data) => {
+    modelTraining.value = data;
+  });
+});
+
 function textChange() {
   setTimeout(() => {
     textarea.value.style.height = "0px";
@@ -223,48 +226,22 @@ function textChange() {
   }, 50);
 }
 
-function scrollBottom(){
-  document.querySelector('.scrollable').scrollTo(0 ,document.querySelector('.scrollable').scrollHeight)
+function scrollBottom() {
+  document.querySelector(".scrollable").scrollTo(0, document.querySelector(".scrollable").scrollHeight);
 }
 
 function trainModel() {
-  loading.value = true;
-  modelLoaded.value = false;
-
   $socket.emit("train", (response) => {
-    if (response.status != 500) {
-      modelLoaded.value = true;
-      console.log(response.model);
-
-      createToast(
-        {
-          title: "Success",
-          description: "Model successfully trained. Check console logs for details",
-        },
-        { type: "success", showIcon: true, transition: "slide" }
-      );
-    } else {
-      console.error(response.message);
-
-      createToast(
-        {
-          title: "Error",
-          description: "There was a problem in the process. Check console logs for details",
-        },
-        { type: "warning", showIcon: true, transition: "slide" }
-      );
-    }
-
-    loading.value = false;
+    console.log(response);
   });
 }
 
 function predict() {
-  if (!modelLoaded.value) {
+  if (modelTraining.value) {
     createToast(
       {
         title: "Warning",
-        description: "Train AI model first",
+        description: "Wait for the model to train",
       },
       { type: "warning", showIcon: true, transition: "slide" }
     );

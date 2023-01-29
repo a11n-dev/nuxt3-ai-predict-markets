@@ -1,9 +1,5 @@
 export default defineNuxtConfig({
-  css: [
-    "~/assets/css/normilize.css",
-    "~/assets/font/font.css",
-    "~/assets/css/main.css",
-  ],
+  css: ["~/assets/css/normilize.css", "~/assets/font/font.css", "~/assets/css/main.css"],
 
   postcss: {
     plugins: {

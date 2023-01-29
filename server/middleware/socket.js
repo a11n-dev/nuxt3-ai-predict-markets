@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import tf from "@tensorflow/tfjs-node";
 import natural from "natural";
 
-
 let uniqueWords = new Set();
 let uniqueWordsArr = [];
 

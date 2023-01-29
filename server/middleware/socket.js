@@ -1,5 +1,4 @@
 import { Server } from "socket.io";
-import mongoose from "mongoose";
 
 // AI
 import tf from "@tensorflow/tfjs-node";
@@ -15,13 +14,6 @@ export default defineEventHandler(async (event) => {
 
   if (globalThis.io) return;
   globalThis.io = new Server(event.node.req.socket.server);
-
-  // Connect to mongodb
-  try {
-    await mongoose.connect(config.mgdbUri);
-  } catch (error) {
-    console.error(error);
-  }
 
   io.on("connection", (socket) => {
     console.log("Connected", socket.id);

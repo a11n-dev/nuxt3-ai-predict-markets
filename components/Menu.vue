@@ -113,7 +113,7 @@ function logout() {
 
   .model-status {
     span {
-      &.gren {
+      &.green {
         background: #3bada9;
       }
 

@@ -4,7 +4,7 @@
       <button @click="MicroModal.show('modal-train-news-model')">
         <img src="/icons/teacher.svg" />
       </button>
-      <!-- <button
+      <button
         @click="trainModel()"
         :class="{ loaded: modelLoaded }"
       >
@@ -40,7 +40,7 @@
             fill="#202123"
           />
         </svg>
-      </button> -->
+      </button>
     </div>
 
     <div class="flex-1 overflow-hidden">

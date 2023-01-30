@@ -580,7 +580,7 @@ const _routes = [
     meta: __nuxt_page_meta,
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/news-a296c10f.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/news-2d545484.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {

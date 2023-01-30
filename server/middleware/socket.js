@@ -7,6 +7,8 @@ import natural from "natural";
 let uniqueWords = new Set();
 let uniqueWordsArr = [];
 
+let modelTraining = true;
+
 import { Article } from "../models/article.model";
 
 export default defineEventHandler(async (event) => {
@@ -45,6 +47,8 @@ export default defineEventHandler(async (event) => {
         const articles = await Article.find({});
         const model = await trainModel(articles);
 
+        modelTraining = false
+
         cb({ status: 200, message: "Model successfully trained", model });
       } catch (err) {
         console.error(err);
@@ -62,6 +66,10 @@ export default defineEventHandler(async (event) => {
         cb({ status: 500, message: err.message });
       }
     });
+
+    setInterval(() => {
+      socket.emit("model-training-status", modelTraining);
+    }, 1000);
   });
 });
 

@@ -12,7 +12,18 @@ export default defineNuxtConfig({
     mgdbUri: process.env.MONGODB_URI,
   },
 
-  build: {
-    analyze: true
-  },
+  vite: {
+    resolve: {
+      extensions: [
+        ".mjs",
+        ".js",
+        ".ts",
+        ".jsx",
+        ".tsx",
+        ".json",
+        ".vue",
+        ".node"
+      ]
+    }
+  }
 });

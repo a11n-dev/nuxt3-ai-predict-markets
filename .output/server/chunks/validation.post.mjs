@@ -46,7 +46,7 @@ const validation_post = defineEventHandler(async (event) => {
     });
   }
   const article = await ((_c = validation_article_mode.ValidationArticle.findOne({ _id: { $nin: validated || [] } })) == null ? void 0 : _c.select("text link"));
-  return article;
+  return { article, validatedCount: validated == null ? void 0 : validated.length, articleCount: await validation_article_mode.ValidationArticle.count() };
 });
 
 export { validation_post as default };

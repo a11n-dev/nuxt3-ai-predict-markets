@@ -4,9 +4,13 @@
     v-if="article"
   >
     <div class="pt-10 h-3/5 w-full mx-auto max-w-5xl">
-      <h3 class="text-2xl font-semibold mb-6">Validate News Article</h3>
+      <h3 class="text-2xl font-semibold mb-6">Validate News Article — {{ `${validatedCount} / ${articleCount}` }}</h3>
 
       <div class="h-full p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4">
+        <h3
+          class="text-lg mb-4"
+          v-html="article.text.split(/\s+/).slice(0, 15).join(' ')"
+        ></h3>
         <p
           class="text-md text-gray-100"
           v-html="article.text"
@@ -18,8 +22,9 @@
           class="text-md text-blue-400 hover:opacity-80"
           :href="article.link"
           target="_blank"
-          >{{ article.link }}</a
         >
+          {{ article.link }}
+        </a>
       </div>
     </div>
 
@@ -50,6 +55,8 @@
 
 <script setup>
 const article = ref(null);
+const validatedCount = ref(0);
+const articleCount = ref(0);
 
 getValidationItem();
 
@@ -60,9 +67,9 @@ async function getValidationItem() {
   });
 
   watch(articleData, (newArticle) => {
-    article.value = newArticle;
-
-    console.log(article.value);
+    article.value = newArticle.article;
+    validatedCount.value = newArticle.validatedCount || 0;
+    articleCount.value = newArticle.articleCount;
   });
 }
 

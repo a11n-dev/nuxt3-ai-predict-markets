@@ -15,5 +15,5 @@ export default defineEventHandler(async (event) => {
 
   const article = await ValidationArticle.findOne({ _id: { $nin: validated || [] } })?.select("text link");
 
-  return article;
+  return { article, validatedCount: validated?.length, articleCount: await ValidationArticle.count() };
 });

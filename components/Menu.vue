@@ -11,7 +11,7 @@
         ></span>
       </div>
 
-      <nav class="flex flex-col gap-6">
+      <nav class="flex flex-col gap-2">
         <li
           v-for="link in links.filter((el) => !el.disabled)"
           class="w-100"
@@ -23,7 +23,9 @@
             :to="link.path"
           >
             <img :src="link.iconPath" />
-            <span>{{ link.name }}</span>
+            <span class="-mb-[3px]">
+              {{ link.name }}
+            </span>
           </NuxtLink>
         </li>
       </nav>
@@ -62,6 +64,12 @@ const links = ref([
     name: "News model",
     path: "/news",
     iconPath: "/icons/document-text.svg",
+    disabled: false,
+  },
+  {
+    name: "Validation",
+    path: "/validation",
+    iconPath: "/icons/tick-square.svg",
     disabled: false,
   },
   {

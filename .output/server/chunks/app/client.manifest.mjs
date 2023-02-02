@@ -1,21 +1,15 @@
 const client_manifest = {
+  "assets/font/Gilroy-Regular.eot": {
+    "resourceType": "font",
+    "mimeType": "font/eot",
+    "file": "Gilroy-Regular.0f661f54.eot",
+    "src": "assets/font/Gilroy-Regular.eot"
+  },
   "assets/font/Gilroy-Bold.eot": {
     "resourceType": "font",
     "mimeType": "font/eot",
     "file": "Gilroy-Bold.0f6a9b59.eot",
     "src": "assets/font/Gilroy-Bold.eot"
-  },
-  "assets/font/Gilroy-ExtraboldItalic.eot": {
-    "resourceType": "font",
-    "mimeType": "font/eot",
-    "file": "Gilroy-ExtraboldItalic.8ce262d4.eot",
-    "src": "assets/font/Gilroy-ExtraboldItalic.eot"
-  },
-  "assets/font/Gilroy-Light.eot": {
-    "resourceType": "font",
-    "mimeType": "font/eot",
-    "file": "Gilroy-Light.d314acae.eot",
-    "src": "assets/font/Gilroy-Light.eot"
   },
   "assets/font/Gilroy-Black.eot": {
     "resourceType": "font",
@@ -29,11 +23,11 @@ const client_manifest = {
     "file": "Gilroy-Semibold.56d6a07e.eot",
     "src": "assets/font/Gilroy-Semibold.eot"
   },
-  "assets/font/Gilroy-Regular.eot": {
+  "assets/font/Gilroy-Light.eot": {
     "resourceType": "font",
     "mimeType": "font/eot",
-    "file": "Gilroy-Regular.0f661f54.eot",
-    "src": "assets/font/Gilroy-Regular.eot"
+    "file": "Gilroy-Light.d314acae.eot",
+    "src": "assets/font/Gilroy-Light.eot"
   },
   "assets/font/Gilroy-Medium.eot": {
     "resourceType": "font",
@@ -53,11 +47,11 @@ const client_manifest = {
     "file": "Gilroy-BlackItalic.f884ded0.eot",
     "src": "assets/font/Gilroy-BlackItalic.eot"
   },
-  "assets/font/Gilroy-UltraLight.eot": {
+  "assets/font/Gilroy-ExtraboldItalic.eot": {
     "resourceType": "font",
     "mimeType": "font/eot",
-    "file": "Gilroy-UltraLight.0c8dd458.eot",
-    "src": "assets/font/Gilroy-UltraLight.eot"
+    "file": "Gilroy-ExtraboldItalic.8ce262d4.eot",
+    "src": "assets/font/Gilroy-ExtraboldItalic.eot"
   },
   "assets/font/Gilroy-RegularItalic.eot": {
     "resourceType": "font",
@@ -65,17 +59,23 @@ const client_manifest = {
     "file": "Gilroy-RegularItalic.3892a5cd.eot",
     "src": "assets/font/Gilroy-RegularItalic.eot"
   },
-  "assets/font/Gilroy-SemiboldItalic.eot": {
+  "assets/font/Gilroy-UltraLight.eot": {
     "resourceType": "font",
     "mimeType": "font/eot",
-    "file": "Gilroy-SemiboldItalic.a2c5ff40.eot",
-    "src": "assets/font/Gilroy-SemiboldItalic.eot"
+    "file": "Gilroy-UltraLight.0c8dd458.eot",
+    "src": "assets/font/Gilroy-UltraLight.eot"
   },
   "assets/font/Gilroy-HeavyItalic.eot": {
     "resourceType": "font",
     "mimeType": "font/eot",
     "file": "Gilroy-HeavyItalic.0596b991.eot",
     "src": "assets/font/Gilroy-HeavyItalic.eot"
+  },
+  "assets/font/Gilroy-SemiboldItalic.eot": {
+    "resourceType": "font",
+    "mimeType": "font/eot",
+    "file": "Gilroy-SemiboldItalic.a2c5ff40.eot",
+    "src": "assets/font/Gilroy-SemiboldItalic.eot"
   },
   "assets/font/Gilroy-Extrabold.eot": {
     "resourceType": "font",
@@ -119,30 +119,6 @@ const client_manifest = {
     "file": "Gilroy-ThinItalic.c9f2275e.eot",
     "src": "assets/font/Gilroy-ThinItalic.eot"
   },
-  "assets/font/Gilroy-ExtraboldItalic.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-ExtraboldItalic.003c5fe6.woff2",
-    "src": "assets/font/Gilroy-ExtraboldItalic.woff2"
-  },
-  "assets/font/Gilroy-Light.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-Light.ad7b32d1.woff2",
-    "src": "assets/font/Gilroy-Light.woff2"
-  },
-  "assets/font/Gilroy-Bold.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-Bold.8da03ac3.woff2",
-    "src": "assets/font/Gilroy-Bold.woff2"
-  },
-  "assets/font/Gilroy-Black.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-Black.e2869f4f.woff2",
-    "src": "assets/font/Gilroy-Black.woff2"
-  },
   "assets/font/Gilroy-Semibold.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
@@ -155,35 +131,17 @@ const client_manifest = {
     "file": "Gilroy-Regular.8e78c2c8.woff2",
     "src": "assets/font/Gilroy-Regular.woff2"
   },
+  "assets/font/Gilroy-Bold.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-Bold.8da03ac3.woff2",
+    "src": "assets/font/Gilroy-Bold.woff2"
+  },
   "assets/font/Gilroy-BlackItalic.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
     "file": "Gilroy-BlackItalic.097444cd.woff2",
     "src": "assets/font/Gilroy-BlackItalic.woff2"
-  },
-  "assets/font/Gilroy-SemiboldItalic.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-SemiboldItalic.944f5b14.woff2",
-    "src": "assets/font/Gilroy-SemiboldItalic.woff2"
-  },
-  "assets/font/Gilroy-MediumItalic.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-MediumItalic.88a78c95.woff2",
-    "src": "assets/font/Gilroy-MediumItalic.woff2"
-  },
-  "assets/font/Gilroy-RegularItalic.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-RegularItalic.fee7a08e.woff2",
-    "src": "assets/font/Gilroy-RegularItalic.woff2"
-  },
-  "assets/font/Gilroy-HeavyItalic.woff2": {
-    "resourceType": "font",
-    "mimeType": "font/woff2",
-    "file": "Gilroy-HeavyItalic.804ea2f5.woff2",
-    "src": "assets/font/Gilroy-HeavyItalic.woff2"
   },
   "assets/font/Gilroy-Medium.woff2": {
     "resourceType": "font",
@@ -191,11 +149,23 @@ const client_manifest = {
     "file": "Gilroy-Medium.ee68ee26.woff2",
     "src": "assets/font/Gilroy-Medium.woff2"
   },
-  "assets/font/Gilroy-Extrabold.woff2": {
+  "assets/font/Gilroy-Light.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
-    "file": "Gilroy-Extrabold.3fc637c6.woff2",
-    "src": "assets/font/Gilroy-Extrabold.woff2"
+    "file": "Gilroy-Light.ad7b32d1.woff2",
+    "src": "assets/font/Gilroy-Light.woff2"
+  },
+  "assets/font/Gilroy-ExtraboldItalic.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-ExtraboldItalic.003c5fe6.woff2",
+    "src": "assets/font/Gilroy-ExtraboldItalic.woff2"
+  },
+  "assets/font/Gilroy-MediumItalic.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-MediumItalic.88a78c95.woff2",
+    "src": "assets/font/Gilroy-MediumItalic.woff2"
   },
   "assets/font/Gilroy-UltraLight.woff2": {
     "resourceType": "font",
@@ -203,17 +173,35 @@ const client_manifest = {
     "file": "Gilroy-UltraLight.aa3d4c53.woff2",
     "src": "assets/font/Gilroy-UltraLight.woff2"
   },
-  "assets/font/Gilroy-BoldItalic.woff2": {
+  "assets/font/Gilroy-SemiboldItalic.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
-    "file": "Gilroy-BoldItalic.8a173f7d.woff2",
-    "src": "assets/font/Gilroy-BoldItalic.woff2"
+    "file": "Gilroy-SemiboldItalic.944f5b14.woff2",
+    "src": "assets/font/Gilroy-SemiboldItalic.woff2"
   },
-  "assets/font/Gilroy-LightItalic.woff2": {
+  "assets/font/Gilroy-RegularItalic.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
-    "file": "Gilroy-LightItalic.77bb919e.woff2",
-    "src": "assets/font/Gilroy-LightItalic.woff2"
+    "file": "Gilroy-RegularItalic.fee7a08e.woff2",
+    "src": "assets/font/Gilroy-RegularItalic.woff2"
+  },
+  "assets/font/Gilroy-Extrabold.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-Extrabold.3fc637c6.woff2",
+    "src": "assets/font/Gilroy-Extrabold.woff2"
+  },
+  "assets/font/Gilroy-Black.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-Black.e2869f4f.woff2",
+    "src": "assets/font/Gilroy-Black.woff2"
+  },
+  "assets/font/Gilroy-HeavyItalic.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-HeavyItalic.804ea2f5.woff2",
+    "src": "assets/font/Gilroy-HeavyItalic.woff2"
   },
   "assets/font/Gilroy-Heavy.woff2": {
     "resourceType": "font",
@@ -227,6 +215,12 @@ const client_manifest = {
     "file": "Gilroy-Thin.84dbd069.woff2",
     "src": "assets/font/Gilroy-Thin.woff2"
   },
+  "assets/font/Gilroy-LightItalic.woff2": {
+    "resourceType": "font",
+    "mimeType": "font/woff2",
+    "file": "Gilroy-LightItalic.77bb919e.woff2",
+    "src": "assets/font/Gilroy-LightItalic.woff2"
+  },
   "assets/font/Gilroy-UltraLightItalic.woff2": {
     "resourceType": "font",
     "mimeType": "font/woff2",
@@ -239,11 +233,11 @@ const client_manifest = {
     "file": "Gilroy-ThinItalic.b89b2fcd.woff2",
     "src": "assets/font/Gilroy-ThinItalic.woff2"
   },
-  "assets/font/Gilroy-ExtraboldItalic.woff": {
+  "assets/font/Gilroy-BoldItalic.woff2": {
     "resourceType": "font",
-    "mimeType": "font/woff",
-    "file": "Gilroy-ExtraboldItalic.12b27a0e.woff",
-    "src": "assets/font/Gilroy-ExtraboldItalic.woff"
+    "mimeType": "font/woff2",
+    "file": "Gilroy-BoldItalic.8a173f7d.woff2",
+    "src": "assets/font/Gilroy-BoldItalic.woff2"
   },
   "assets/font/Gilroy-Regular.woff": {
     "resourceType": "font",
@@ -257,17 +251,29 @@ const client_manifest = {
     "file": "Gilroy-Semibold.75bd5a29.woff",
     "src": "assets/font/Gilroy-Semibold.woff"
   },
+  "assets/font/Gilroy-BlackItalic.woff": {
+    "resourceType": "font",
+    "mimeType": "font/woff",
+    "file": "Gilroy-BlackItalic.c5677bb4.woff",
+    "src": "assets/font/Gilroy-BlackItalic.woff"
+  },
+  "assets/font/Gilroy-Medium.woff": {
+    "resourceType": "font",
+    "mimeType": "font/woff",
+    "file": "Gilroy-Medium.119e6666.woff",
+    "src": "assets/font/Gilroy-Medium.woff"
+  },
   "assets/font/Gilroy-Light.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
     "file": "Gilroy-Light.2521625c.woff",
     "src": "assets/font/Gilroy-Light.woff"
   },
-  "assets/font/Gilroy-Black.woff": {
+  "assets/font/Gilroy-ExtraboldItalic.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
-    "file": "Gilroy-Black.6a3b4aaf.woff",
-    "src": "assets/font/Gilroy-Black.woff"
+    "file": "Gilroy-ExtraboldItalic.12b27a0e.woff",
+    "src": "assets/font/Gilroy-ExtraboldItalic.woff"
   },
   "assets/font/Gilroy-Bold.woff": {
     "resourceType": "font",
@@ -275,17 +281,17 @@ const client_manifest = {
     "file": "Gilroy-Bold.d27594f8.woff",
     "src": "assets/font/Gilroy-Bold.woff"
   },
-  "assets/font/Gilroy-BlackItalic.woff": {
+  "assets/font/Gilroy-UltraLight.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
-    "file": "Gilroy-BlackItalic.c5677bb4.woff",
-    "src": "assets/font/Gilroy-BlackItalic.woff"
+    "file": "Gilroy-UltraLight.4832a904.woff",
+    "src": "assets/font/Gilroy-UltraLight.woff"
   },
-  "assets/font/Gilroy-SemiboldItalic.woff": {
+  "assets/font/Gilroy-Black.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
-    "file": "Gilroy-SemiboldItalic.ba129f3f.woff",
-    "src": "assets/font/Gilroy-SemiboldItalic.woff"
+    "file": "Gilroy-Black.6a3b4aaf.woff",
+    "src": "assets/font/Gilroy-Black.woff"
   },
   "assets/font/Gilroy-Extrabold.woff": {
     "resourceType": "font",
@@ -293,11 +299,11 @@ const client_manifest = {
     "file": "Gilroy-Extrabold.bf9d1c93.woff",
     "src": "assets/font/Gilroy-Extrabold.woff"
   },
-  "assets/font/Gilroy-RegularItalic.woff": {
+  "assets/font/Gilroy-SemiboldItalic.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
-    "file": "Gilroy-RegularItalic.670c9653.woff",
-    "src": "assets/font/Gilroy-RegularItalic.woff"
+    "file": "Gilroy-SemiboldItalic.ba129f3f.woff",
+    "src": "assets/font/Gilroy-SemiboldItalic.woff"
   },
   "assets/font/Gilroy-MediumItalic.woff": {
     "resourceType": "font",
@@ -311,29 +317,11 @@ const client_manifest = {
     "file": "Gilroy-HeavyItalic.02ea2f5f.woff",
     "src": "assets/font/Gilroy-HeavyItalic.woff"
   },
-  "assets/font/Gilroy-UltraLight.woff": {
+  "assets/font/Gilroy-RegularItalic.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
-    "file": "Gilroy-UltraLight.4832a904.woff",
-    "src": "assets/font/Gilroy-UltraLight.woff"
-  },
-  "assets/font/Gilroy-Medium.woff": {
-    "resourceType": "font",
-    "mimeType": "font/woff",
-    "file": "Gilroy-Medium.119e6666.woff",
-    "src": "assets/font/Gilroy-Medium.woff"
-  },
-  "assets/font/Gilroy-BoldItalic.woff": {
-    "resourceType": "font",
-    "mimeType": "font/woff",
-    "file": "Gilroy-BoldItalic.f4999fdf.woff",
-    "src": "assets/font/Gilroy-BoldItalic.woff"
-  },
-  "assets/font/Gilroy-LightItalic.woff": {
-    "resourceType": "font",
-    "mimeType": "font/woff",
-    "file": "Gilroy-LightItalic.474c175d.woff",
-    "src": "assets/font/Gilroy-LightItalic.woff"
+    "file": "Gilroy-RegularItalic.670c9653.woff",
+    "src": "assets/font/Gilroy-RegularItalic.woff"
   },
   "assets/font/Gilroy-Heavy.woff": {
     "resourceType": "font",
@@ -347,6 +335,12 @@ const client_manifest = {
     "file": "Gilroy-Thin.6d99991a.woff",
     "src": "assets/font/Gilroy-Thin.woff"
   },
+  "assets/font/Gilroy-LightItalic.woff": {
+    "resourceType": "font",
+    "mimeType": "font/woff",
+    "file": "Gilroy-LightItalic.474c175d.woff",
+    "src": "assets/font/Gilroy-LightItalic.woff"
+  },
   "assets/font/Gilroy-UltraLightItalic.woff": {
     "resourceType": "font",
     "mimeType": "font/woff",
@@ -359,11 +353,11 @@ const client_manifest = {
     "file": "Gilroy-ThinItalic.5fca3566.woff",
     "src": "assets/font/Gilroy-ThinItalic.woff"
   },
-  "assets/font/Gilroy-ExtraboldItalic.ttf": {
+  "assets/font/Gilroy-BoldItalic.woff": {
     "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-ExtraboldItalic.e1041773.ttf",
-    "src": "assets/font/Gilroy-ExtraboldItalic.ttf"
+    "mimeType": "font/woff",
+    "file": "Gilroy-BoldItalic.f4999fdf.woff",
+    "src": "assets/font/Gilroy-BoldItalic.woff"
   },
   "assets/font/Gilroy-Semibold.ttf": {
     "resourceType": "font",
@@ -371,11 +365,11 @@ const client_manifest = {
     "file": "Gilroy-Semibold.070077f0.ttf",
     "src": "assets/font/Gilroy-Semibold.ttf"
   },
-  "assets/font/Gilroy-Light.ttf": {
+  "assets/font/Gilroy-BlackItalic.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
-    "file": "Gilroy-Light.11044a79.ttf",
-    "src": "assets/font/Gilroy-Light.ttf"
+    "file": "Gilroy-BlackItalic.ec197cee.ttf",
+    "src": "assets/font/Gilroy-BlackItalic.ttf"
   },
   "assets/font/Gilroy-Regular.ttf": {
     "resourceType": "font",
@@ -383,53 +377,11 @@ const client_manifest = {
     "file": "Gilroy-Regular.4312cfe3.ttf",
     "src": "assets/font/Gilroy-Regular.ttf"
   },
-  "assets/font/Gilroy-Black.ttf": {
+  "assets/font/Gilroy-ExtraboldItalic.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
-    "file": "Gilroy-Black.dc9aa35f.ttf",
-    "src": "assets/font/Gilroy-Black.ttf"
-  },
-  "assets/font/Gilroy-Bold.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-Bold.1b401dca.ttf",
-    "src": "assets/font/Gilroy-Bold.ttf"
-  },
-  "assets/font/Gilroy-BlackItalic.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-BlackItalic.ec197cee.ttf",
-    "src": "assets/font/Gilroy-BlackItalic.ttf"
-  },
-  "assets/font/Gilroy-SemiboldItalic.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-SemiboldItalic.ea1bc21f.ttf",
-    "src": "assets/font/Gilroy-SemiboldItalic.ttf"
-  },
-  "assets/font/Gilroy-Extrabold.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-Extrabold.5315109f.ttf",
-    "src": "assets/font/Gilroy-Extrabold.ttf"
-  },
-  "assets/font/Gilroy-RegularItalic.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-RegularItalic.f08f30f0.ttf",
-    "src": "assets/font/Gilroy-RegularItalic.ttf"
-  },
-  "assets/font/Gilroy-MediumItalic.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-MediumItalic.aca0fb40.ttf",
-    "src": "assets/font/Gilroy-MediumItalic.ttf"
-  },
-  "assets/font/Gilroy-HeavyItalic.ttf": {
-    "resourceType": "font",
-    "mimeType": "font/ttf",
-    "file": "Gilroy-HeavyItalic.4b29b3c8.ttf",
-    "src": "assets/font/Gilroy-HeavyItalic.ttf"
+    "file": "Gilroy-ExtraboldItalic.e1041773.ttf",
+    "src": "assets/font/Gilroy-ExtraboldItalic.ttf"
   },
   "assets/font/Gilroy-Medium.ttf": {
     "resourceType": "font",
@@ -437,23 +389,47 @@ const client_manifest = {
     "file": "Gilroy-Medium.216a2049.ttf",
     "src": "assets/font/Gilroy-Medium.ttf"
   },
+  "assets/font/Gilroy-Bold.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-Bold.1b401dca.ttf",
+    "src": "assets/font/Gilroy-Bold.ttf"
+  },
+  "assets/font/Gilroy-Light.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-Light.11044a79.ttf",
+    "src": "assets/font/Gilroy-Light.ttf"
+  },
   "assets/font/Gilroy-UltraLight.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
     "file": "Gilroy-UltraLight.8d32cca1.ttf",
     "src": "assets/font/Gilroy-UltraLight.ttf"
   },
-  "assets/font/Gilroy-BoldItalic.ttf": {
+  "assets/font/Gilroy-Extrabold.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
-    "file": "Gilroy-BoldItalic.70a46041.ttf",
-    "src": "assets/font/Gilroy-BoldItalic.ttf"
+    "file": "Gilroy-Extrabold.5315109f.ttf",
+    "src": "assets/font/Gilroy-Extrabold.ttf"
   },
-  "assets/font/Gilroy-LightItalic.ttf": {
+  "assets/font/Gilroy-SemiboldItalic.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
-    "file": "Gilroy-LightItalic.ad064f39.ttf",
-    "src": "assets/font/Gilroy-LightItalic.ttf"
+    "file": "Gilroy-SemiboldItalic.ea1bc21f.ttf",
+    "src": "assets/font/Gilroy-SemiboldItalic.ttf"
+  },
+  "assets/font/Gilroy-HeavyItalic.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-HeavyItalic.4b29b3c8.ttf",
+    "src": "assets/font/Gilroy-HeavyItalic.ttf"
+  },
+  "assets/font/Gilroy-MediumItalic.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-MediumItalic.aca0fb40.ttf",
+    "src": "assets/font/Gilroy-MediumItalic.ttf"
   },
   "assets/font/Gilroy-Heavy.ttf": {
     "resourceType": "font",
@@ -461,17 +437,41 @@ const client_manifest = {
     "file": "Gilroy-Heavy.80f6e351.ttf",
     "src": "assets/font/Gilroy-Heavy.ttf"
   },
+  "assets/font/Gilroy-RegularItalic.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-RegularItalic.f08f30f0.ttf",
+    "src": "assets/font/Gilroy-RegularItalic.ttf"
+  },
   "assets/font/Gilroy-Thin.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
     "file": "Gilroy-Thin.04163bf9.ttf",
     "src": "assets/font/Gilroy-Thin.ttf"
   },
+  "assets/font/Gilroy-LightItalic.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-LightItalic.ad064f39.ttf",
+    "src": "assets/font/Gilroy-LightItalic.ttf"
+  },
+  "assets/font/Gilroy-Black.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-Black.dc9aa35f.ttf",
+    "src": "assets/font/Gilroy-Black.ttf"
+  },
   "assets/font/Gilroy-UltraLightItalic.ttf": {
     "resourceType": "font",
     "mimeType": "font/ttf",
     "file": "Gilroy-UltraLightItalic.76cf89b6.ttf",
     "src": "assets/font/Gilroy-UltraLightItalic.ttf"
+  },
+  "assets/font/Gilroy-BoldItalic.ttf": {
+    "resourceType": "font",
+    "mimeType": "font/ttf",
+    "file": "Gilroy-BoldItalic.70a46041.ttf",
+    "src": "assets/font/Gilroy-BoldItalic.ttf"
   },
   "assets/font/Gilroy-ThinItalic.ttf": {
     "resourceType": "font",
@@ -489,25 +489,25 @@ const client_manifest = {
     "file": "news.fe3d28b5.css",
     "src": "pages/news.css"
   },
-  "node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
-    "resourceType": "style",
-    "file": "error-500.aa16ed4d.css",
-    "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
-  },
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.css": {
     "resourceType": "style",
     "file": "error-404.23f2309d.css",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.css"
   },
+  "node_modules/@nuxt/ui-templates/dist/templates/error-500.css": {
+    "resourceType": "style",
+    "file": "error-500.aa16ed4d.css",
+    "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.css"
+  },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
-    "file": "entry.736eb5df.css",
+    "file": "entry.32f08582.css",
     "src": "node_modules/nuxt/dist/app/entry.css"
   },
   "virtual:nuxt:/Users/an.eleven/Sites/localhost/nuxt/nuxt3-ai-predict-markets/.nuxt/error-component.mjs": {
     "resourceType": "script",
     "module": true,
-    "file": "error-component.ce2b6b87.js",
+    "file": "error-component.78d8f56c.js",
     "src": "virtual:nuxt:/Users/an.eleven/Sites/localhost/nuxt/nuxt3-ai-predict-markets/.nuxt/error-component.mjs",
     "isDynamicEntry": true,
     "imports": [
@@ -518,20 +518,20 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ]
   },
-  "pages/index.vue": {
+  "_composables.88feef39.js": {
     "resourceType": "script",
     "module": true,
-    "file": "index.310721de.js",
-    "src": "pages/index.vue",
-    "isDynamicEntry": true,
+    "file": "composables.88feef39.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
   },
-  "_composables.4a728b63.js": {
+  "pages/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "composables.4a728b63.js",
+    "file": "index.3d57e19a.js",
+    "src": "pages/index.vue",
+    "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs"
     ]
@@ -539,7 +539,7 @@ const client_manifest = {
   "pages/login.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "login.fb8f3e8c.js",
+    "file": "login.752a2b4d.js",
     "src": "pages/login.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -554,12 +554,12 @@ const client_manifest = {
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "error-404.b147187e.js",
+    "file": "error-404.9bdfeb1a.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.mjs",
-      "_composables.4a728b63.js"
+      "_composables.88feef39.js"
     ],
     "css": []
   },
@@ -567,10 +567,26 @@ const client_manifest = {
     "file": "error-404.23f2309d.css",
     "resourceType": "style"
   },
+  "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
+    "resourceType": "script",
+    "module": true,
+    "file": "error-500.94f9e0a2.js",
+    "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_composables.88feef39.js",
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ],
+    "css": []
+  },
+  "error-500.aa16ed4d.css": {
+    "file": "error-500.aa16ed4d.css",
+    "resourceType": "style"
+  },
   "pages/news.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "news.d359b8ae.js",
+    "file": "news.690b2849.js",
     "src": "pages/news.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -582,33 +598,27 @@ const client_manifest = {
     "file": "news.fe3d28b5.css",
     "resourceType": "style"
   },
-  "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
+  "pages/validation.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "error-500.21212e11.js",
-    "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
+    "file": "validation.ddf1b701.js",
+    "src": "pages/validation.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_composables.4a728b63.js",
       "node_modules/nuxt/dist/app/entry.mjs"
-    ],
-    "css": []
-  },
-  "error-500.aa16ed4d.css": {
-    "file": "error-500.aa16ed4d.css",
-    "resourceType": "style"
+    ]
   },
   "node_modules/nuxt/dist/app/entry.mjs": {
     "resourceType": "script",
     "module": true,
-    "file": "entry.2e3b37b6.js",
+    "file": "entry.dd3fcd0f.js",
     "src": "node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "dynamicImports": [
       "virtual:nuxt:/Users/an.eleven/Sites/localhost/nuxt/nuxt3-ai-predict-markets/.nuxt/error-component.mjs"
     ],
     "css": [
-      "entry.736eb5df.css"
+      "entry.32f08582.css"
     ],
     "assets": [
       "Gilroy-Regular.0f661f54.eot",
@@ -693,8 +703,8 @@ const client_manifest = {
       "Gilroy-ThinItalic.e158cbe5.ttf"
     ]
   },
-  "entry.736eb5df.css": {
-    "file": "entry.736eb5df.css",
+  "entry.32f08582.css": {
+    "file": "entry.32f08582.css",
     "resourceType": "style"
   },
   "Gilroy-Regular.0f661f54.eot": {

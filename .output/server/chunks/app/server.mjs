@@ -551,36 +551,46 @@ const node_modules_nuxt_dist_head_runtime_lib_vueuse_head_plugin_mjs_D7WGfuP1A0 
     };
   }
 });
+const __nuxt_page_meta$3 = {};
 const __nuxt_page_meta$2 = {};
 const __nuxt_page_meta$1 = {};
 const __nuxt_page_meta = {};
 const _routes = [
   {
-    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "index",
-    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/",
+    name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "index",
+    path: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.path) ?? "/",
+    children: [],
+    meta: __nuxt_page_meta$3,
+    alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
+    redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
+    component: () => import('./_nuxt/index-01d252be.mjs').then((m) => m.default || m)
+  },
+  {
+    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "login",
+    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/login",
     children: [],
     meta: __nuxt_page_meta$2,
     alias: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.alias) || [],
     redirect: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.redirect) || void 0,
-    component: () => import('./_nuxt/index-01d252be.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/login-e903ae86.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "login",
-    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/login",
+    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "news",
+    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/news",
     children: [],
     meta: __nuxt_page_meta$1,
     alias: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.alias) || [],
     redirect: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.redirect) || void 0,
-    component: () => import('./_nuxt/login-e903ae86.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/news-2d545484.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "news",
-    path: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.path) ?? "/news",
+    name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "validation",
+    path: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.path) ?? "/validation",
     children: [],
     meta: __nuxt_page_meta,
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/news-2d545484.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/validation-4f90245d.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -804,6 +814,12 @@ const _sfc_main$3 = {
         disabled: false
       },
       {
+        name: "Validation",
+        path: "/validation",
+        iconPath: "/icons/tick-square.svg",
+        disabled: false
+      },
+      {
         name: "Charts Model",
         path: "/charts",
         iconPath: "/icons/chart.svg",
@@ -812,7 +828,7 @@ const _sfc_main$3 = {
     ]);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]" }, _attrs))}><div class="navigation"><small class="block text-center text-sm"> id: ${ssrInterpolate(unref(uid))}</small><div class="model-status flex items-center justify-center mb-3 text-center text-sm"> model status <span class="${ssrRenderClass([{ green: !unref(modelTraining), red: unref(modelTraining) }, "block w-2 h-2 rounded-full ml-1"])}"></span></div><nav class="flex flex-col gap-6"><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]" }, _attrs))}><div class="navigation"><small class="block text-center text-sm"> id: ${ssrInterpolate(unref(uid))}</small><div class="model-status flex items-center justify-center mb-3 text-center text-sm"> model status <span class="${ssrRenderClass([{ green: !unref(modelTraining), red: unref(modelTraining) }, "block w-2 h-2 rounded-full ml-1"])}"></span></div><nav class="flex flex-col gap-2"><!--[-->`);
       ssrRenderList(unref(links).filter((el) => !el.disabled), (link) => {
         _push(`<li class="${ssrRenderClass([{ active: _ctx.$route.path == link.path }, "w-100"])}">`);
         _push(ssrRenderComponent(_component_NuxtLink, {
@@ -821,13 +837,13 @@ const _sfc_main$3 = {
         }, {
           default: withCtx((_, _push2, _parent2, _scopeId) => {
             if (_push2) {
-              _push2(`<img${ssrRenderAttr("src", link.iconPath)}${_scopeId}><span${_scopeId}>${ssrInterpolate(link.name)}</span>`);
+              _push2(`<img${ssrRenderAttr("src", link.iconPath)}${_scopeId}><span class="-mb-[3px]"${_scopeId}>${ssrInterpolate(link.name)}</span>`);
             } else {
               return [
                 createVNode("img", {
                   src: link.iconPath
                 }, null, 8, ["src"]),
-                createVNode("span", null, toDisplayString(link.name), 1)
+                createVNode("span", { class: "-mb-[3px]" }, toDisplayString(link.name), 1)
               ];
             }
           }),

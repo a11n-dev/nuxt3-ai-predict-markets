@@ -4,7 +4,7 @@
     v-if="article"
   >
     <div class="pt-10 h-3/5 w-full mx-auto max-w-5xl">
-      <h3 class="text-2xl font-semibold mb-6">Validate News Article — {{ `${validatedCount} / ${articleCount}` }}</h3>
+      <h3 class="text-2xl font-semibold mb-6">Validate News Article</h3>
 
       <div class="h-full p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4">
         <h3
@@ -67,9 +67,7 @@ async function getValidationItem() {
   });
 
   watch(articleData, (newArticle) => {
-    article.value = newArticle.article;
-    validatedCount.value = newArticle.validatedCount || 0;
-    articleCount.value = newArticle.articleCount;
+    article.value = newArticle;
   });
 }
 

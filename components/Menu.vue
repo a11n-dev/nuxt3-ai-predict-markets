@@ -73,6 +73,12 @@ const links = ref([
     disabled: false,
   },
   {
+    name: "Statistics",
+    path: "/statistics",
+    iconPath: "/icons/activity.svg",
+    disabled: false,
+  },
+  {
     name: "Charts Model",
     path: "/charts",
     iconPath: "/icons/chart.svg",

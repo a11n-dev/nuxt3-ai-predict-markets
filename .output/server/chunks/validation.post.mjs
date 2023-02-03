@@ -1,6 +1,7 @@
 import { defineEventHandler, readBody } from 'h3';
-import { r as require$$0 } from './nitro/node-server.mjs';
+import { v as validation_article_mode } from './validation.article.mode.mjs';
 import { v as validation_model } from './validation.model.mjs';
+import './nitro/node-server.mjs';
 import 'node-fetch-native/polyfill';
 import 'node:http';
 import 'node:https';
@@ -23,18 +24,6 @@ import 'socket.io';
 import '@tensorflow/tfjs-node';
 import 'natural';
 
-const { Schema, model } = require$$0;
-const ValidationArticleSchema = new Schema(
-  {
-    text: { type: String, required: true },
-    date: { type: String, required: true },
-    link: { type: String, required: true }
-  },
-  { collection: "validation-articles" }
-);
-const ValidationArticle = model("ValidationArticle", ValidationArticleSchema);
-var validation_article_mode = { ValidationArticleSchema, ValidationArticle };
-
 const validation_post = defineEventHandler(async (event) => {
   var _a, _b, _c;
   const { userID } = await readBody(event);
@@ -46,7 +35,7 @@ const validation_post = defineEventHandler(async (event) => {
     });
   }
   const article = await ((_c = validation_article_mode.ValidationArticle.findOne({ _id: { $nin: validated || [] } })) == null ? void 0 : _c.select("text link"));
-  return { article, validatedCount: validated == null ? void 0 : validated.length, articleCount: await validation_article_mode.ValidationArticle.count() };
+  return article;
 });
 
 export { validation_post as default };

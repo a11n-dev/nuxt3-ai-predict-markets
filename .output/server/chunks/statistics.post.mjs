@@ -1,5 +1,6 @@
 import { defineEventHandler, readBody } from 'h3';
-import { v as validation_article_mode, a as article_model } from './nitro/node-server.mjs';
+import { a as article_model } from './nitro/node-server.mjs';
+import { v as validation_article_mode } from './validation.article.mode.mjs';
 import { v as validation_model } from './validation.model.mjs';
 import 'node-fetch-native/polyfill';
 import 'node:http';
@@ -20,7 +21,6 @@ import 'node:fs';
 import 'node:url';
 import 'pathe';
 import 'socket.io';
-import 'fs';
 import '@tensorflow/tfjs-node';
 import 'natural';
 

@@ -30,7 +30,7 @@
         </a>
       </div>
 
-      <div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto">AI Prediction is: {{ prediction }}</div>
+      <!-- <div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto">AI Prediction is: {{ prediction }}</div> -->
     </div>
 
     <div class="absolute bottom-0 left-0 w-full">
@@ -84,7 +84,7 @@ async function getValidationItem() {
   watch(articleData, (newArticle) => {
     article.value = newArticle;
 
-    predict(article.value.text);
+    // predict(article.value.text);
   });
 }
 

@@ -610,7 +610,7 @@ const _routes = [
     meta: __nuxt_page_meta,
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/validation-cd3d4ec1.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/validation-9ffd53ac.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -843,7 +843,7 @@ const _sfc_main$3 = {
         name: "Validation AI",
         path: "/validation-ai",
         iconPath: "/icons/tick-square.svg",
-        disabled: false
+        disabled: true
       },
       {
         name: "Statistics",

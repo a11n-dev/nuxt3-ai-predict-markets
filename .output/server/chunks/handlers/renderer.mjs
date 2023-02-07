@@ -21,7 +21,6 @@ import 'node:fs';
 import 'node:url';
 import 'pathe';
 import 'socket.io';
-import 'fs';
 import '@tensorflow/tfjs-node';
 import 'natural';
 import 'scule';

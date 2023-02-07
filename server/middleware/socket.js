@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
   globalThis.io = new Server(event.node.req.socket.server);
 
   // getConsensus(); // Check consensus results call
-  trainValidationModel(); // Train validation model call
+  // trainValidationModel(); // Train validation model call
 
   io.on("connection", (socket) => {
     console.log("Connected", socket.id);
@@ -96,16 +96,16 @@ async function getConsensus() {
     .select("user validated.article validated.validationResult -_id");
 
   const consensusArr = [];
-
+  
   // slice array for specific length
   validationResults.forEach((user) => {
     if (user.validated) {
-      user.validated = user.validated.slice(0, 1500);
+      user.validated = user.validated.slice(0, 1800);
     }
   });
 
   // combine validation results
-  for (let index = 0; index < 1500; index++) {
+  for (let index = 0; index < 1800; index++) {
     const obj = {
       articleId: "",
       accepted: 0,
@@ -130,7 +130,6 @@ async function getConsensus() {
           break;
       }
     });
-
     consensusArr.push(obj);
   }
 
@@ -138,11 +137,14 @@ async function getConsensus() {
 
   consensusArr.forEach((el) => {
     let result = "";
+    let value = 0;
 
     if (el.accepted >= 2) {
       result = "accepted";
+      value = 'accepted ' + el.accepted;
     } else if (el.rejected >= 2) {
       result = "rejected";
+      value = 'rejected ' + el.rejected;
     } else {
       result = "no consensus";
     }
@@ -150,10 +152,9 @@ async function getConsensus() {
     consensusResult.push({
       articleId: el.articleId,
       result,
+      value,
     });
   });
-
-  console.log(consensusResult.length);
 
   fs.writeFileSync("./utils/consensus.json", JSON.stringify(consensusResult, null, 2));
 }

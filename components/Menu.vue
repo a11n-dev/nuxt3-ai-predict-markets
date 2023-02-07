@@ -83,7 +83,7 @@ const links = ref([
     name: "Validation AI",
     path: "/validation-ai",
     iconPath: "/icons/tick-square.svg",
-    disabled: false,
+    disabled: true,
   },
   {
     name: "Statistics",

@@ -1,16 +1,6 @@
 <template>
   <div class="menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]">
     <div class="navigation">
-      <small class="block text-center text-sm"> id: {{ uid }} </small>
-      <div class="model-status flex items-center justify-center mb-3 text-center text-sm">
-        model status
-
-        <span
-          class="block w-2 h-2 rounded-full ml-1"
-          :class="{ green: !modelTraining, red: modelTraining }"
-        ></span>
-      </div>
-
       <nav class="flex flex-col gap-2">
         <li
           v-for="link in links.filter((el) => !el.disabled)"
@@ -31,7 +21,24 @@
       </nav>
     </div>
 
-    <div class="actions">
+    <div class="actions flex flex-col">
+      <div class="info text-left w-full mb-4">
+        <small class="block text-sm mb-2"> id: {{ uid }} </small>
+        <div class="model-status flex items-center justify-start mb-2 text-sm">
+          <span class="block w-2 h-2 rounded-full mr-2 red"></span>
+
+          news model
+        </div>
+        <div class="model-status flex items-center justify-start text-sm">
+          <span
+            class="block w-2 h-2 rounded-full mr-2"
+            :class="{ green: !modelTraining, red: modelTraining }"
+          ></span>
+
+          validation model
+        </div>
+      </div>
+
       <button
         class="w-100"
         @click="logout()"
@@ -69,6 +76,12 @@ const links = ref([
   {
     name: "Validation",
     path: "/validation",
+    iconPath: "/icons/tick-square.svg",
+    disabled: false,
+  },
+  {
+    name: "Validation AI",
+    path: "/validation-ai",
     iconPath: "/icons/tick-square.svg",
     disabled: false,
   },

@@ -20,7 +20,7 @@
         ></p>
       </div>
 
-      <div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto">
+      <div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4">
         <a
           class="text-md text-blue-400 hover:opacity-80"
           :href="article.link"
@@ -29,6 +29,8 @@
           {{ article.link }}
         </a>
       </div>
+
+      <div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto">AI Prediction is: {{ prediction }}</div>
     </div>
 
     <div class="absolute bottom-0 left-0 w-full">
@@ -57,11 +59,21 @@
 </template>
 
 <script setup>
+const { $socket } = useNuxtApp();
+
 const article = ref(null);
 const validatedCount = ref(0);
 const articleCount = ref(0);
 
+const prediction = ref("");
+
 getValidationItem();
+
+onMounted(() => {
+  $socket.on("model-training-status", (data) => {
+    modelTraining.value = data;
+  });
+});
 
 async function getValidationItem() {
   const { data: articleData } = await useLazyFetch("/api/articles/validation", {
@@ -71,7 +83,8 @@ async function getValidationItem() {
 
   watch(articleData, (newArticle) => {
     article.value = newArticle;
-    console.log(article.value);
+
+    predict(article.value.text);
   });
 }
 
@@ -81,6 +94,12 @@ async function validateArticle(validationResult) {
     body: { userID: localStorage?.getItem("aiUserUID"), articleID: article.value?._id, validationResult },
   }).then(() => {
     getValidationItem();
+  });
+}
+
+function predict(article) {
+  $socket.emit("predict-validation", article, (response) => {
+    prediction.value = response.prediction;
   });
 }
 </script>

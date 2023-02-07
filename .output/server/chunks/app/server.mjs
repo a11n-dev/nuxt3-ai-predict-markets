@@ -551,6 +551,7 @@ const node_modules_nuxt_dist_head_runtime_lib_vueuse_head_plugin_mjs_D7WGfuP1A0 
     };
   }
 });
+const __nuxt_page_meta$5 = {};
 const __nuxt_page_meta$4 = {};
 const __nuxt_page_meta$3 = {};
 const __nuxt_page_meta$2 = {};
@@ -558,40 +559,49 @@ const __nuxt_page_meta$1 = {};
 const __nuxt_page_meta = {};
 const _routes = [
   {
-    name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "index",
-    path: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.path) ?? "/",
+    name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "index",
+    path: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.path) ?? "/",
+    children: [],
+    meta: __nuxt_page_meta$5,
+    alias: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.alias) || [],
+    redirect: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.redirect) || void 0,
+    component: () => import('./_nuxt/index-01d252be.mjs').then((m) => m.default || m)
+  },
+  {
+    name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "login",
+    path: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.path) ?? "/login",
     children: [],
     meta: __nuxt_page_meta$4,
     alias: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.alias) || [],
     redirect: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.redirect) || void 0,
-    component: () => import('./_nuxt/index-01d252be.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/login-e903ae86.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "login",
-    path: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.path) ?? "/login",
+    name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "news",
+    path: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.path) ?? "/news",
     children: [],
     meta: __nuxt_page_meta$3,
     alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
     redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
-    component: () => import('./_nuxt/login-e903ae86.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/news-4e704a22.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "news",
-    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/news",
+    name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "statistics",
+    path: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.path) ?? "/statistics",
     children: [],
     meta: __nuxt_page_meta$2,
     alias: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.alias) || [],
     redirect: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.redirect) || void 0,
-    component: () => import('./_nuxt/news-2d545484.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/statistics-aa75eaf2.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "statistics",
-    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/statistics",
+    name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "validation-ai",
+    path: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.path) ?? "/validation-ai",
     children: [],
     meta: __nuxt_page_meta$1,
     alias: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.alias) || [],
     redirect: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.redirect) || void 0,
-    component: () => import('./_nuxt/statistics-aa75eaf2.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/validation-ai-f802d826.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "validation",
@@ -600,7 +610,7 @@ const _routes = [
     meta: __nuxt_page_meta,
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/validation-73e4e51e.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/validation-cd3d4ec1.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -830,6 +840,12 @@ const _sfc_main$3 = {
         disabled: false
       },
       {
+        name: "Validation AI",
+        path: "/validation-ai",
+        iconPath: "/icons/tick-square.svg",
+        disabled: false
+      },
+      {
         name: "Statistics",
         path: "/statistics",
         iconPath: "/icons/activity.svg",
@@ -844,7 +860,7 @@ const _sfc_main$3 = {
     ]);
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLink = __nuxt_component_0;
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]" }, _attrs))}><div class="navigation"><small class="block text-center text-sm"> id: ${ssrInterpolate(unref(uid))}</small><div class="model-status flex items-center justify-center mb-3 text-center text-sm"> model status <span class="${ssrRenderClass([{ green: !unref(modelTraining), red: unref(modelTraining) }, "block w-2 h-2 rounded-full ml-1"])}"></span></div><nav class="flex flex-col gap-2"><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "menu fixed left-0 top-0 h-full p-4 flex flex-col justify-between bg-dark w-[260px]" }, _attrs))}><div class="navigation"><nav class="flex flex-col gap-2"><!--[-->`);
       ssrRenderList(unref(links).filter((el) => !el.disabled), (link) => {
         _push(`<li class="${ssrRenderClass([{ active: _ctx.$route.path == link.path }, "w-100"])}">`);
         _push(ssrRenderComponent(_component_NuxtLink, {
@@ -867,7 +883,7 @@ const _sfc_main$3 = {
         }, _parent));
         _push(`</li>`);
       });
-      _push(`<!--]--></nav></div><div class="actions"><button class="w-100"><img${ssrRenderAttr("src", _imports_0)} alt=""><span>Log out</span></button></div></div>`);
+      _push(`<!--]--></nav></div><div class="actions flex flex-col"><div class="info text-left w-full mb-4"><small class="block text-sm mb-2"> id: ${ssrInterpolate(unref(uid))}</small><div class="model-status flex items-center justify-start mb-2 text-sm"><span class="block w-2 h-2 rounded-full mr-2 red"></span> news model </div><div class="model-status flex items-center justify-start text-sm"><span class="${ssrRenderClass([{ green: !unref(modelTraining), red: unref(modelTraining) }, "block w-2 h-2 rounded-full mr-2"])}"></span> validation model </div></div><button class="w-100"><img${ssrRenderAttr("src", _imports_0)} alt=""><span>Log out</span></button></div></div>`);
     };
   }
 };

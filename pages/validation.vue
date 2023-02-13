@@ -65,7 +65,7 @@
       class="absolute bottom-0 left-0 w-full"
       v-if="currentView === 'Single View'"
     >
-      <div class="stretch mx-2 grid grid-cols-3 gap-6 last:mb-6 mx-auto max-w-3xl bg-dark rounded-3xl p-6">
+      <div class="stretch grid grid-cols-3 gap-6 last:mb-6 mx-auto max-w-3xl bg-dark rounded-3xl p-6">
         <button
           class="p-4 bg-green-600 rounded-xl font-semibold"
           @click="validateArticle('accept')"

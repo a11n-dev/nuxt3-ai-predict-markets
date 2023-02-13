@@ -89,19 +89,19 @@ const _sfc_main = {
     return (_ctx, _push, _parent, _attrs) => {
       const _component_TableView = _sfc_main$1;
       if (unref(article) || unref(articleList)) {
-        _push(`<div${ssrRenderAttrs(mergeProps({ class: "page relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1" }, _attrs))} data-v-abbb426f><div class="pt-10 w-full h-full mx-auto max-w-5xl" data-v-abbb426f><div class="flex justify-between items-center mb-6" data-v-abbb426f><h3 class="text-2xl font-semibold" data-v-abbb426f>Validate News Articles</h3><div class="view" data-v-abbb426f><ul data-v-abbb426f><!--[-->`);
+        _push(`<div${ssrRenderAttrs(mergeProps({ class: "page relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1" }, _attrs))} data-v-5c62a04b><div class="pt-10 w-full h-full mx-auto max-w-5xl" data-v-5c62a04b><div class="flex justify-between items-center mb-6" data-v-5c62a04b><h3 class="text-2xl font-semibold" data-v-5c62a04b>Validate News Articles</h3><div class="view" data-v-5c62a04b><ul data-v-5c62a04b><!--[-->`);
         ssrRenderList(unref(views), (view) => {
-          _push(`<li class="${ssrRenderClass({ active: unref(currentView) == view.name })}" data-v-abbb426f>${ssrInterpolate(view.name)}</li>`);
+          _push(`<li class="${ssrRenderClass({ active: unref(currentView) == view.name })}" data-v-5c62a04b>${ssrInterpolate(view.name)}</li>`);
         });
         _push(`<!--]--></ul></div></div>`);
         if (unref(currentView) === "Single View") {
-          _push(`<div class="h-1/5" data-v-abbb426f><div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4" data-v-abbb426f><h3 class="text-xl mb-2" data-v-abbb426f>${ssrInterpolate(unref(article).title)}</h3><p class="mb-4 text-md" data-v-abbb426f>${ssrInterpolate(unref(article).excerpt)}</p><small class="block" data-v-abbb426f><b data-v-abbb426f>Date:</b> ${ssrInterpolate(new Date(unref(article).date).toLocaleDateString())} ${ssrInterpolate(new Date(unref(article).date).toTimeString())}</small><small class="block" data-v-abbb426f><b data-v-abbb426f>Parser:</b> ${ssrInterpolate(unref(article).parserId.name)}</small></div><div class="relative h-full p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4" data-v-abbb426f><p class="text-md text-gray-100" data-v-abbb426f>${unref(article).content}</p></div><div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4" data-v-abbb426f><a class="text-md text-blue-400 hover:opacity-80"${ssrRenderAttr("href", unref(article).link)} target="_blank" data-v-abbb426f>${ssrInterpolate(unref(article).link)}</a></div></div>`);
+          _push(`<div class="h-1/5" data-v-5c62a04b><div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4" data-v-5c62a04b><h3 class="text-xl mb-2" data-v-5c62a04b>${ssrInterpolate(unref(article).title)}</h3><p class="mb-4 text-md" data-v-5c62a04b>${ssrInterpolate(unref(article).excerpt)}</p><small class="block" data-v-5c62a04b><b data-v-5c62a04b>Date:</b> ${ssrInterpolate(new Date(unref(article).date).toLocaleDateString())} ${ssrInterpolate(new Date(unref(article).date).toTimeString())}</small><small class="block" data-v-5c62a04b><b data-v-5c62a04b>Parser:</b> ${ssrInterpolate(unref(article).parserId.name)}</small></div><div class="relative h-full p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4" data-v-5c62a04b><p class="text-md text-gray-100" data-v-5c62a04b>${unref(article).content}</p></div><div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4" data-v-5c62a04b><a class="text-md text-blue-400 hover:opacity-80"${ssrRenderAttr("href", unref(article).link)} target="_blank" data-v-5c62a04b>${ssrInterpolate(unref(article).link)}</a></div></div>`);
         } else {
           _push(ssrRenderComponent(_component_TableView, { articleList: unref(articleList) }, null, _parent));
         }
         _push(`</div>`);
         if (unref(currentView) === "Single View") {
-          _push(`<div class="absolute bottom-0 left-0 w-full" data-v-abbb426f><div class="stretch mx-2 grid grid-cols-3 gap-6 last:mb-6 mx-auto max-w-3xl bg-dark rounded-3xl p-6" data-v-abbb426f><button class="p-4 bg-green-600 rounded-xl font-semibold" data-v-abbb426f> Accept </button><button class="p-4 bg-red-600 rounded-xl font-semibold" data-v-abbb426f> Reject </button><button class="p-4 bg-sky-600 rounded-xl font-semibold" data-v-abbb426f> Skip </button></div></div>`);
+          _push(`<div class="absolute bottom-0 left-0 w-full" data-v-5c62a04b><div class="stretch grid grid-cols-3 gap-6 last:mb-6 mx-auto max-w-3xl bg-dark rounded-3xl p-6" data-v-5c62a04b><button class="p-4 bg-green-600 rounded-xl font-semibold" data-v-5c62a04b> Accept </button><button class="p-4 bg-red-600 rounded-xl font-semibold" data-v-5c62a04b> Reject </button><button class="p-4 bg-sky-600 rounded-xl font-semibold" data-v-5c62a04b> Skip </button></div></div>`);
         } else {
           _push(`<!---->`);
         }
@@ -118,7 +118,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/validation.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const validation = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-abbb426f"]]);
+const validation = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-5c62a04b"]]);
 
 export { validation as default };
-//# sourceMappingURL=validation-f360a411.mjs.map
+//# sourceMappingURL=validation-e73fb38e.mjs.map

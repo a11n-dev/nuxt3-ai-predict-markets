@@ -13,6 +13,7 @@ let modelTraining = true;
 import { Article } from "../models/article.model";
 import { Validation } from "~/server/models/validation.model";
 import { ValidationArticle } from "~/server/models/validation.article.mode";
+import { Parser } from "~/server/models/parser.model";
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
@@ -20,7 +21,6 @@ export default defineEventHandler(async (event) => {
   if (globalThis.io) return;
   globalThis.io = new Server(event.node.req.socket.server);
 
-  // getConsensus(); // Check consensus results call
   // trainValidationModel(); // Train validation model call
 
   io.on("connection", (socket) => {
@@ -92,31 +92,49 @@ export default defineEventHandler(async (event) => {
 
 async function getConsensus() {
   const validationResults = await Validation.find({ validated: { $exists: true, $not: { $size: 0 } } })
-    ?.populate("validated.article", "id")
+    ?.populate("validated.article", "id text link")
     .select("user validated.article validated.validationResult -_id");
 
   const consensusArr = [];
-  
+
   // slice array for specific length
   validationResults.forEach((user) => {
     if (user.validated) {
-      user.validated = user.validated.slice(0, 1800);
+      user.validated = user.validated.slice(1800, 2500);
     }
   });
 
   // combine validation results
-  for (let index = 0; index < 1800; index++) {
+  for (let index = 0; index < 2500 - 1800; index++) {
     const obj = {
-      articleId: "",
+      articleId: validationResults[0].validated[index].article.id,
+      title: validationResults[0].validated[index].article.text.split(/\s+/).slice(0, 20).join(" "),
+      text: validationResults[0].validated[index].article.text,
+      link: validationResults[0].validated[index].article.link,
+      user1: "",
+      user2: "",
+      user3: "",
       accepted: 0,
       rejected: 0,
       skiped: 0,
     };
 
-    obj.articleId = validationResults[0].validated[index].article.id;
+    validationResults.forEach((result) => {
+      switch (result.user) {
+        case "1":
+          obj.user1 = result.validated[index].validationResult;
+          break;
+        case "2":
+          obj.user2 = result.validated[index].validationResult;
+          break;
+        case "3":
+          obj.user3 = result.validated[index].validationResult;
+          break;
+        default:
+          break;
+      }
 
-    validationResults.forEach((user) => {
-      switch (user.validated[index].validationResult) {
+      switch (result.validated[index].validationResult) {
         case "accept":
           obj.accepted++;
           break;
@@ -130,33 +148,52 @@ async function getConsensus() {
           break;
       }
     });
+
     consensusArr.push(obj);
   }
 
   const consensusResult = [];
 
-  consensusArr.forEach((el) => {
+  consensusArr.forEach(async (el) => {
     let result = "";
-    let value = 0;
 
     if (el.accepted >= 2) {
       result = "accepted";
-      value = 'accepted ' + el.accepted;
     } else if (el.rejected >= 2) {
       result = "rejected";
-      value = 'rejected ' + el.rejected;
-    } else {
-      result = "no consensus";
     }
+    if (result) {
+      const { accepted, rejected, skiped, ...newObj } = el;
 
-    consensusResult.push({
-      articleId: el.articleId,
-      result,
-      value,
-    });
+      consensusResult.push({
+        ...newObj,
+        consensusResult: result,
+      });
+    }
   });
 
-  fs.writeFileSync("./utils/consensus.json", JSON.stringify(consensusResult, null, 2));
+  for (const [index, el] of consensusResult.entries()) {
+    consensusResult[index].aiPrediction = await validationPredict(el.text);
+  }
+
+  fs.writeFileSync(
+    "./utils/consensus-accepted.json",
+    JSON.stringify(
+      consensusResult.filter((el) => el.consensusResult == "accepted"),
+      null,
+      2
+    )
+  );
+  fs.writeFileSync(
+    "./utils/consensus-rejected.json",
+    JSON.stringify(
+      consensusResult.filter((el) => el.consensusResult == "rejected"),
+      null,
+      2
+    )
+  );
+
+  console.log("end");
 }
 
 // Train model for news articles validatoin
@@ -172,7 +209,7 @@ async function trainValidationModel() {
 
       data.push({
         text: article.text,
-        articleResult: el.result,
+        articleResult: el.consensusResult,
       });
     }
   });
@@ -240,6 +277,8 @@ async function trainValidationModel() {
   await model.save(`file://utils/models/validation`);
 
   modelTraining = false;
+
+  getConsensus(); // Check consensus results call
 }
 
 async function validationPredict(articleText) {

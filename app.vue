@@ -12,15 +12,16 @@
   </div>
 
   <ModalTrainNewsModel />
+  <ModalCreateParser />
 </template>
 
 <script setup>
 const router = useRouter();
-const isLoggedIn = computed(() => {
-  return localStorage?.getItem("aiUserUID");
-});
+const isLoggedIn = ref(null);
 
-onBeforeMount(() => {
+onMounted(() => {
+  isLoggedIn.value = localStorage?.getItem("aiUserUID");
+
   if (!isLoggedIn.value) {
     router.push({ path: "/login" });
   }

@@ -551,6 +551,7 @@ const node_modules_nuxt_dist_head_runtime_lib_vueuse_head_plugin_mjs_D7WGfuP1A0 
     };
   }
 });
+const __nuxt_page_meta$6 = {};
 const __nuxt_page_meta$5 = {};
 const __nuxt_page_meta$4 = {};
 const __nuxt_page_meta$3 = {};
@@ -559,31 +560,40 @@ const __nuxt_page_meta$1 = {};
 const __nuxt_page_meta = {};
 const _routes = [
   {
-    name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "index",
-    path: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.path) ?? "/",
+    name: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.name) ?? "index",
+    path: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.path) ?? "/",
+    children: [],
+    meta: __nuxt_page_meta$6,
+    alias: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.alias) || [],
+    redirect: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.redirect) || void 0,
+    component: () => import('./_nuxt/index-01d252be.mjs').then((m) => m.default || m)
+  },
+  {
+    name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "login",
+    path: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.path) ?? "/login",
     children: [],
     meta: __nuxt_page_meta$5,
     alias: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.alias) || [],
     redirect: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.redirect) || void 0,
-    component: () => import('./_nuxt/index-01d252be.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/login-e903ae86.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "login",
-    path: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.path) ?? "/login",
+    name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "news",
+    path: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.path) ?? "/news",
     children: [],
     meta: __nuxt_page_meta$4,
     alias: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.alias) || [],
     redirect: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.redirect) || void 0,
-    component: () => import('./_nuxt/login-e903ae86.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/news-4e704a22.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "news",
-    path: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.path) ?? "/news",
+    name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "parsers",
+    path: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.path) ?? "/parsers",
     children: [],
     meta: __nuxt_page_meta$3,
     alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
     redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
-    component: () => import('./_nuxt/news-4e704a22.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/parsers-6ffc8b73.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "statistics",
@@ -610,7 +620,7 @@ const _routes = [
     meta: __nuxt_page_meta,
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/validation-9ffd53ac.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/validation-f360a411.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -818,7 +828,7 @@ const _plugins = [
   node_modules_nuxt_dist_pages_runtime_plugins_router_mjs_Pg0DINazwm
 ];
 const _imports_0 = "" + __publicAssetsURL("icons/login.svg");
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   __name: "Menu",
   __ssrInlineRender: true,
   setup(__props) {
@@ -849,6 +859,12 @@ const _sfc_main$3 = {
         name: "Statistics",
         path: "/statistics",
         iconPath: "/icons/activity.svg",
+        disabled: false
+      },
+      {
+        name: "Parsers",
+        path: "/parsers",
+        iconPath: "/icons/document-code.svg",
         disabled: false
       },
       {
@@ -887,11 +903,11 @@ const _sfc_main$3 = {
     };
   }
 };
-const _sfc_setup$3 = _sfc_main$3.setup;
-_sfc_main$3.setup = (props, ctx) => {
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Menu.vue");
-  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
 const interpolatePath = (route, match) => {
   return match.path.replace(/(:\w+)\([^)]+\)/g, "$1").replace(/(:\w+)[?+*]/g, "$1").replace(/:\w+/g, (r) => {
@@ -1017,7 +1033,7 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$2 = {
+const _sfc_main$3 = {
   __name: "TrainNewsModel",
   __ssrInlineRender: true,
   setup(__props) {
@@ -1067,25 +1083,48 @@ const _sfc_main$2 = {
     };
   }
 };
+const _sfc_setup$3 = _sfc_main$3.setup;
+_sfc_main$3.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/modal/TrainNewsModel.vue");
+  return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
+};
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-375edb86"]]);
+const _sfc_main$2 = {
+  __name: "CreateParser",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const parserName = ref(null);
+    const resourceLink = ref(null);
+    const postSelector = ref(null);
+    const linkSelector = ref(null);
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(`<div${ssrRenderAttrs(mergeProps({
+        class: "modal micromodal-slide",
+        id: "modal-create-parser",
+        "aria-hidden": "true"
+      }, _attrs))} data-v-76d0423b><div class="modal__overlay" tabindex="-1" data-micromodal-close data-v-76d0423b><div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-form-title" data-v-76d0423b><div class="modal__container-header flex justify-between align-center" data-v-76d0423b><h3 class="modal-title" data-v-76d0423b>Enter parser options</h3><button class="close-modal-button" data-micromodal-close data-v-76d0423b><svg aria-hidden="true" fill="#202123" height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg" data-v-76d0423b><path d="M1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L3.58579 5L0.292893 8.29289C-0.0976311 8.68342 -0.0976311 9.31658 0.292893 9.70711C0.683417 10.0976 1.31658 10.0976 1.70711 9.70711L5 6.41421L8.29289 9.70711C8.68342 10.0976 9.31658 10.0976 9.70711 9.70711C10.0976 9.31658 10.0976 8.68342 9.70711 8.29289L6.41421 5L9.70711 1.70711C10.0976 1.31658 10.0976 0.683417 9.70711 0.292893C9.31658 -0.0976311 8.68342 -0.0976311 8.29289 0.292893L5 3.58579L1.70711 0.292893Z" fill="#202123" data-v-76d0423b></path></svg></button></div><div class="option-list mb-6" data-v-76d0423b><div class="option" data-v-76d0423b><h5 class="modal-sub-title" data-v-76d0423b>Parser Name</h5><input type="text" name="" id="" placeholder="Ex: www.example.com"${ssrRenderAttr("value", unref(parserName))} data-v-76d0423b></div><div class="option" data-v-76d0423b><h5 class="modal-sub-title" data-v-76d0423b>Resource Link</h5><input type="text" name="" id="" placeholder="Ex: https://www.example.com/tag/bitcoin/"${ssrRenderAttr("value", unref(resourceLink))} data-v-76d0423b></div><div class="option" data-v-76d0423b><h5 class="modal-sub-title" data-v-76d0423b>Post Selector</h5><input type="text" name="" id="" placeholder="Ex: .post-class"${ssrRenderAttr("value", unref(postSelector))} data-v-76d0423b></div><div class="option" data-v-76d0423b><h5 class="modal-sub-title" data-v-76d0423b>Link Selector</h5><input type="text" name="" id="" placeholder="Ex: a.post-link-class"${ssrRenderAttr("value", unref(linkSelector))} data-v-76d0423b></div></div><button class="btn btn-fill w-full" data-v-76d0423b> Create Parser </button></div></div></div>`);
+    };
+  }
+};
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/modal/TrainNewsModel.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/modal/CreateParser.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-375edb86"]]);
+const __nuxt_component_3 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-76d0423b"]]);
 const _sfc_main$1 = {
   __name: "app",
   __ssrInlineRender: true,
   setup(__props) {
     useRouter();
-    const isLoggedIn = computed(() => {
-      return localStorage == null ? void 0 : localStorage.getItem("aiUserUID");
-    });
+    const isLoggedIn = ref(null);
     return (_ctx, _push, _parent, _attrs) => {
-      const _component_Menu = _sfc_main$3;
+      const _component_Menu = _sfc_main$4;
       const _component_NuxtPage = __nuxt_component_1;
       const _component_ModalTrainNewsModel = __nuxt_component_2;
+      const _component_ModalCreateParser = __nuxt_component_3;
       _push(`<!--[--><div class="layout h-screen">`);
       if (unref(isLoggedIn)) {
         _push(`<!--[-->`);
@@ -1098,6 +1137,7 @@ const _sfc_main$1 = {
       }
       _push(`</div>`);
       _push(ssrRenderComponent(_component_ModalTrainNewsModel, null, null, _parent));
+      _push(ssrRenderComponent(_component_ModalCreateParser, null, null, _parent));
       _push(`<!--]-->`);
     };
   }

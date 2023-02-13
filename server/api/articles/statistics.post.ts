@@ -1,11 +1,11 @@
 import { Article } from "~~/server/models/article.model";
-import { ValidationArticle } from "~/server/models/validation.article.mode";
-import { Validation } from "~/server/models/validation.model";
+import { ParsedArticle } from "~/server/models/parsed.article.model";
+import { v2Validation } from "~/server/models/validation.v2.model";
 
 export default defineEventHandler(async (event) => {
   const { userID } = await readBody(event);
 
-  const validated = (await Validation.findOne({ user: userID })?.select("validated -_id"))?.validated;
+  const validated = await v2Validation.find({ user: userID })
 
   let accepted: number = 0;
   let rejected: number = 0;
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
   return {
     validation: {
       validated: { total: validated?.length, accepted, rejected, skiped },
-      articlesCount: await ValidationArticle.count(),
+      articlesCount: await ParsedArticle.count(),
     },
     training: {
       total: await Article.count({ user: userID }),

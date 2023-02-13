@@ -1,7 +1,6 @@
 import { defineEventHandler, readBody } from 'h3';
-import { a as article_model } from './nitro/node-server.mjs';
-import { v as validation_article_mode } from './validation.article.mode.mjs';
-import { v as validation_model } from './validation.model.mjs';
+import { a as parsed_article_model, b as article_model } from './nitro/node-server.mjs';
+import { v as validation_v2_model } from './validation.v2.model.mjs';
 import 'node-fetch-native/polyfill';
 import 'node:http';
 import 'node:https';
@@ -17,6 +16,11 @@ import 'unstorage';
 import 'defu';
 import 'radix3';
 import 'mongoose';
+import 'request';
+import 'cheerio';
+import '@postlight/mercury-parser';
+import '@mozilla/readability';
+import 'jsdom';
 import 'node:fs';
 import 'node:url';
 import 'pathe';
@@ -25,9 +29,8 @@ import '@tensorflow/tfjs-node';
 import 'natural';
 
 const statistics_post = defineEventHandler(async (event) => {
-  var _a, _b;
   const { userID } = await readBody(event);
-  const validated = (_b = await ((_a = validation_model.Validation.findOne({ user: userID })) == null ? void 0 : _a.select("validated -_id"))) == null ? void 0 : _b.validated;
+  const validated = await validation_v2_model.v2Validation.find({ user: userID });
   let accepted = 0;
   let rejected = 0;
   let skiped = 0;
@@ -43,7 +46,7 @@ const statistics_post = defineEventHandler(async (event) => {
   return {
     validation: {
       validated: { total: validated == null ? void 0 : validated.length, accepted, rejected, skiped },
-      articlesCount: await validation_article_mode.ValidationArticle.count()
+      articlesCount: await parsed_article_model.ParsedArticle.count()
     },
     training: {
       total: await article_model.Article.count({ user: userID })

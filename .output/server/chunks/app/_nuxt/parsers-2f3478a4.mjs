@@ -1,7 +1,7 @@
 import { p as publicAssetsURL } from '../../paths.mjs';
 import { ref, watch, mergeProps, unref, useSSRContext } from 'vue';
 import { u as useLazyFetch } from './fetch-3686909c.mjs';
-import { ssrRenderAttrs, ssrRenderAttr, ssrRenderList, ssrInterpolate } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrRenderAttr, ssrRenderList, ssrInterpolate, ssrRenderClass } from 'vue/server-renderer';
 import 'ufo';
 import '../../nitro/config.mjs';
 import 'destr';
@@ -47,13 +47,13 @@ const _sfc_main = {
       if (unref(parsers)) {
         _push(`<div class="pt-10 w-full mx-auto max-w-5xl"><!--[-->`);
         ssrRenderList(unref(parsers), (parser) => {
-          _push(`<div class="relative p-6 bg-[#444653] rounded-3xl mb-4"><div class="flex justify-between"><div><h3 class="text-xl font-semibold mb-2">${ssrInterpolate(parser.name)}</h3><a class="text-md text-blue-400 hover:opacity-80"${ssrRenderAttr("href", parser.link)} target="_blank">${ssrInterpolate(parser.link)}</a></div><div class="flex gap-2">`);
+          _push(`<div class="relative bg-[#444653] rounded-2xl mb-4"><div class="flex justify-between px-6 pt-6 pb-4"><div><h3 class="text-xl font-semibold mb-2">${ssrInterpolate(parser.name)}</h3><a class="text-md text-blue-400 hover:opacity-80"${ssrRenderAttr("href", parser.link)} target="_blank">${ssrInterpolate(parser.link)}</a></div><div class="flex gap-2">`);
           if (!parser.status) {
             _push(`<button><img${ssrRenderAttr("src", _imports_3)} alt=""></button>`);
           } else {
             _push(`<button><img${ssrRenderAttr("src", _imports_4)} alt=""></button>`);
           }
-          _push(`<button><img${ssrRenderAttr("src", _imports_5)} alt=""></button></div></div></div>`);
+          _push(`<button><img${ssrRenderAttr("src", _imports_5)} alt=""></button></div></div><div class="flex justify-end pt-2 pb-2 px-6 bg-dark rounded-b-2xl"><ul class="metadata text-sm flex items-center gap-4"><li> 24h: <b>${ssrInterpolate(parser.statistics.parsed_24h)}</b></li><li> 7d: <b>${ssrInterpolate(parser.statistics.parsed_7d)}</b></li><li> Total: <b>${ssrInterpolate(parser.statistics.parsed)}</b></li><li> Last check: <b>${ssrInterpolate(new Date(parser.lastCheck).toLocaleDateString())} ${ssrInterpolate(new Date(parser.lastCheck).toLocaleTimeString())}</b></li><li class="flex items-center"><span class="${ssrRenderClass([{ "bg-green-600": parser.status, "bg-red-600": !parser.status }, "block w-3 h-3 rounded-full"])}"></span></li></ul></div></div>`);
         });
         _push(`<!--]--></div>`);
       } else {
@@ -71,4 +71,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=parsers-6ffc8b73.mjs.map
+//# sourceMappingURL=parsers-2f3478a4.mjs.map

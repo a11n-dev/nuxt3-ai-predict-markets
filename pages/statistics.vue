@@ -3,7 +3,7 @@
     class="page relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1"
     v-if="statistics"
   >
-    <div class="pt-10 h-3/5 w-full mx-auto max-w-5xl">
+    <div class="pt-10 w-full mx-auto max-w-5xl">
       <h3 class="text-2xl font-semibold mb-6">Profile Statistics</h3>
 
       <div class="flex flex-col gap-6 p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4">
@@ -30,6 +30,27 @@
           <div class="flex flex-col text-center p-4 bg-sky-600 rounded-xl font-semibold">
             <b class="text-xl">{{ statistics.validation.validated.skiped }}</b>
             <small>Validation skiped</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-10 w-full mx-auto max-w-5xl">
+      <h3 class="text-2xl font-semibold mb-6">Parsers Statistics</h3>
+
+      <div class="flex flex-col gap-6 p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="flex flex-col text-center">
+            <b class="text-xl">{{ statistics.parsers.parsed_24h }}</b>
+            <small>Parsed 24h</small>
+          </div>
+          <div class="flex flex-col text-center">
+            <b class="text-xl">{{ statistics.parsers.parsed_7d }}</b>
+            <small>Parsed 7d</small>
+          </div>
+          <div class="flex flex-col text-center">
+            <b class="text-xl">{{ statistics.parsers.parsed }}</b>
+            <small>Parsed Total</small>
           </div>
         </div>
       </div>

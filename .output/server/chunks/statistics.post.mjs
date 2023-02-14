@@ -43,6 +43,19 @@ const statistics_post = defineEventHandler(async (event) => {
       skiped++;
     }
   });
+  const parsed_24h = await parsed_article_model.ParsedArticle.count({
+    createdAt: {
+      $gte: new Date(Date.now() - 24 * 60 * 60 * 1e3),
+      $lt: new Date(Date.now())
+    }
+  });
+  const parsed_7d = await parsed_article_model.ParsedArticle.count({
+    createdAt: {
+      $gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1e3),
+      $lt: new Date(Date.now())
+    }
+  });
+  const parsed = await parsed_article_model.ParsedArticle.count();
   return {
     validation: {
       validated: { total: validated == null ? void 0 : validated.length, accepted, rejected, skiped },
@@ -50,6 +63,11 @@ const statistics_post = defineEventHandler(async (event) => {
     },
     training: {
       total: await article_model.Article.count({ user: userID })
+    },
+    parsers: {
+      parsed_24h,
+      parsed_7d,
+      parsed
     }
   };
 });

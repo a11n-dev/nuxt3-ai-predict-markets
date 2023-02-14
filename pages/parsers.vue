@@ -41,11 +41,11 @@
       v-if="parsers"
     >
       <div
-        class="relative p-6 bg-[#444653] rounded-3xl mb-4"
+        class="relative bg-[#444653] rounded-2xl mb-4"
         v-for="parser in parsers"
         :key="parser._id"
       >
-        <div class="flex justify-between">
+        <div class="flex justify-between px-6 pt-6 pb-4">
           <div>
             <h3 class="text-xl font-semibold mb-2">{{ parser.name }}</h3>
 
@@ -84,6 +84,30 @@
             </button>
           </div>
         </div>
+
+        <div class="flex justify-end pt-2 pb-2 px-6 bg-dark rounded-b-2xl">
+          <ul class="metadata text-sm flex items-center gap-4">
+            <li>
+              24h: <b>{{ parser.statistics.parsed_24h }}</b>
+            </li>
+            <li>
+              7d: <b>{{ parser.statistics.parsed_7d }}</b>
+            </li>
+            <li>
+              Total: <b>{{ parser.statistics.parsed }}</b>
+            </li>
+            <li>
+              Last check:
+              <b>{{ new Date(parser.lastCheck).toLocaleDateString() }} {{ new Date(parser.lastCheck).toLocaleTimeString() }}</b>
+            </li>
+            <li class="flex items-center">
+              <span
+                class="block w-3 h-3 rounded-full"
+                :class="{ 'bg-green-600': parser.status, 'bg-red-600': !parser.status }"
+              ></span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -118,7 +142,6 @@ async function setStatus(parserId, parserStatus, setAll) {
     method: "put",
     body: { parserId, parserStatus, setAll },
   }).then((res) => {
-    console.log(res.data.value);
     getParsers();
   });
 }

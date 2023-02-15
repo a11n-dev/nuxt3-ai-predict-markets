@@ -8,6 +8,8 @@ import { JSDOM } from "jsdom";
 import { Parser } from "~/server/models/parser.model";
 import { ParsedArticle } from "~/server/models/parsed.article.model";
 
+import * as fs from "fs";
+
 const urlPattern = new RegExp(
   "^(https?:\\/\\/)?" + // validate protocol
     "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name

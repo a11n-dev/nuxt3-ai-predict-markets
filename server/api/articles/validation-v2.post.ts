@@ -8,17 +8,27 @@ export default defineEventHandler(async (event) => {
     const validated = (await v2Validation.find({ user: userID }).select("articleId -_id"))?.map((el) => el.articleId) || null;
 
     if (tableView) {
-      if (userID === '999') {
-        return await ParsedArticle.find({ _id: { $nin: validated || [] }, parserId: '63ecb31a953adad3945c219a' })?.populate('parserId', 'name -_id').select("title content excerpt date link").limit(100);
+      if (userID === "999") {
+        return await ParsedArticle.find({ $and: [{ _id: { $nin: validated || [] } }, { parserId: "63ecb31a953adad3945c219a" }] })
+          ?.populate("parserId", "name -_id")
+          .select("title content excerpt date link")
+          .limit(100);
       }
 
-      return await ParsedArticle.find({ _id: { $nin: validated || [] } })?.populate('parserId', 'name -_id').select("title content excerpt date link");
-    } else{
-      if (userID === '999') {
-        return await ParsedArticle.findOne({ _id: { $nin: validated || [] }, parserId: '63ecb31a953adad3945c219a' })?.populate('parserId', 'name -_id').select("title content excerpt date link").limit(100);
+      return await ParsedArticle.find({ $and: [{ _id: { $nin: validated || [] } }, { parserId: { $ne: "63ecb31a953adad3945c219a" } }] })
+        ?.populate("parserId", "name -_id")
+        .select("title content excerpt date link");
+    } else {
+      if (userID === "999") {
+        return await ParsedArticle.findOne({ $and: [{ _id: { $nin: validated || [] } }, { parserId: "63ecb31a953adad3945c219a" }] })
+          ?.populate("parserId", "name -_id")
+          .select("title content excerpt date link")
+          .limit(100);
       }
 
-      return await ParsedArticle.findOne({ _id: { $nin: validated || [] } })?.populate('parserId', 'name -_id').select("title content excerpt date link");
+      return await ParsedArticle.findOne({ $and: [{ _id: { $nin: validated || [] } }, { parserId: { $ne: "63ecb31a953adad3945c219a" } }] })
+        ?.populate("parserId", "name -_id")
+        .select("title content excerpt date link");
     }
   } catch (error) {
     console.error(error);

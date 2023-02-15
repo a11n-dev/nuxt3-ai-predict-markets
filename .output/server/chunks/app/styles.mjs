@@ -7,8 +7,8 @@ const styles = {
   "components/Menu.vue": () => import('./_nuxt/Menu-styles.ef4ec8bd.mjs').then(interopDefault),
   "components/modal/TrainNewsModel.vue": () => import('./_nuxt/TrainNewsModel-styles.90298b7f.mjs').then(interopDefault),
   "components/modal/CreateParser.vue": () => import('./_nuxt/CreateParser-styles.b4278e4c.mjs').then(interopDefault),
-  "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": () => import('./_nuxt/error-500-styles.6b5b5ff2.mjs').then(interopDefault),
-  "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": () => import('./_nuxt/error-404-styles.a5c3f351.mjs').then(interopDefault)
+  "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": () => import('./_nuxt/error-404-styles.a5c3f351.mjs').then(interopDefault),
+  "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": () => import('./_nuxt/error-500-styles.6b5b5ff2.mjs').then(interopDefault)
 };
 
 export { styles as default };

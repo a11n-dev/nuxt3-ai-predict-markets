@@ -61,7 +61,7 @@ async function parseArticles(resources: Array<any>) {
         title: data.title,
         content: readableContent.textContent,
         excerpt: data.excerpt || "",
-        date: data.date_published || Date.now(),
+        date: data.date_published,
         link: data.url,
       });
     }

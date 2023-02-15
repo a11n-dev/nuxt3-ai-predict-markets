@@ -29,14 +29,20 @@ import '@tensorflow/tfjs-node';
 import 'natural';
 
 const validationV2_post = defineEventHandler(async (event) => {
-  var _a, _b, _c;
+  var _a, _b, _c, _d, _e;
   try {
     const { userID, tableView } = await readBody(event);
     const validated = ((_a = await validation_v2_model.v2Validation.find({ user: userID }).select("articleId -_id")) == null ? void 0 : _a.map((el) => el.articleId)) || null;
     if (tableView) {
-      return await ((_b = parsed_article_model.ParsedArticle.find({ _id: { $nin: validated || [] } })) == null ? void 0 : _b.populate("parserId", "name -_id").select("title content excerpt date link"));
+      if (userID === "999") {
+        return await ((_b = parsed_article_model.ParsedArticle.find({ _id: { $nin: validated || [] }, parserId: "63ecb31a953adad3945c219a" })) == null ? void 0 : _b.populate("parserId", "name -_id").select("title content excerpt date link").limit(100));
+      }
+      return await ((_c = parsed_article_model.ParsedArticle.find({ _id: { $nin: validated || [] } })) == null ? void 0 : _c.populate("parserId", "name -_id").select("title content excerpt date link"));
     } else {
-      return await ((_c = parsed_article_model.ParsedArticle.findOne({ _id: { $nin: validated || [] } })) == null ? void 0 : _c.populate("parserId", "name -_id").select("title content excerpt date link"));
+      if (userID === "999") {
+        return await ((_d = parsed_article_model.ParsedArticle.findOne({ _id: { $nin: validated || [] }, parserId: "63ecb31a953adad3945c219a" })) == null ? void 0 : _d.populate("parserId", "name -_id").select("title content excerpt date link").limit(100));
+      }
+      return await ((_e = parsed_article_model.ParsedArticle.findOne({ _id: { $nin: validated || [] } })) == null ? void 0 : _e.populate("parserId", "name -_id").select("title content excerpt date link"));
     }
   } catch (error) {
     console.error(error);

@@ -12,7 +12,7 @@ export default defineNitroPlugin(async () => {
     setInterval(async () => {
       console.log("Parsing cycle started...");
       parseArticles(await Parser.find({ status: true }));
-    }, 1000 * 60 * 30);
+    }, 1000 * 60 * 1);
   } catch (error) {
     console.error(error);
   }
@@ -27,7 +27,7 @@ async function parseArticles(resources: Array<any>) {
   if (resources.length === 0) return;
 
   // Launch headless Chrome
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
 
   for (const resource of resources) {

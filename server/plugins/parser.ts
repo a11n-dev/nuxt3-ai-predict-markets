@@ -27,7 +27,7 @@ async function parseArticles(resources: Array<any>) {
   if (resources.length === 0) return;
 
   // Launch headless Chrome
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
   const page = await browser.newPage();
 
   for (const resource of resources) {

@@ -2,7 +2,7 @@ import { Server } from "socket.io";
 import * as fs from "fs";
 
 // AI
-// import * as tf from "@tensorflow/tfjs-node";
+import * as tf from "@tensorflow/tfjs-node";
 import natural from "natural";
 
 let uniqueWords = new Set();
@@ -13,7 +13,6 @@ let modelTraining = true;
 import { Article } from "../models/article.model";
 import { Validation } from "~/server/models/validation.model";
 import { ValidationArticle } from "~/server/models/validation.article.mode";
-import { Parser } from "~/server/models/parser.model";
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();

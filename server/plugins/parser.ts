@@ -8,11 +8,13 @@ import { ParsedArticle } from "~/server/models/parsed.article.model";
 export default defineNitroPlugin(async () => {
   try {
     if (process.env.NODE_ENV !== "production") return;
+    console.log("Parsing cycle started...");
+    parseArticles(await Parser.find({ status: true }));
 
-    setInterval(async () => {
-      console.log("Parsing cycle started...");
-      parseArticles(await Parser.find({ status: true }));
-    }, 1000 * 60 * 1);
+    // setInterval(async () => {
+    //   console.log("Parsing cycle started...");
+    //   parseArticles(await Parser.find({ status: true }));
+    // }, 1000 * 60 * 30);
   } catch (error) {
     console.error(error);
   }
@@ -27,7 +29,7 @@ async function parseArticles(resources: Array<any>) {
   if (resources.length === 0) return;
 
   // Launch headless Chrome
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   for (const resource of resources) {

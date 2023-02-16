@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "sudo apt-get update && sudo apt-get install -y libnss3 && nuxt build",
+    "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

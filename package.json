@@ -24,7 +24,7 @@
     "mongoose": "^6.8.3",
     "mosha-vue-toastify": "^1.0.23",
     "natural": "^6.1.4",
-    "puppeteer": "^19.7.0",
+    "puppeteer": "^19.7.1",
     "request": "^2.88.2",
     "socket.io": "^4.5.2",
     "socket.io-client": "^4.5.3"

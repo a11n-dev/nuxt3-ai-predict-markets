@@ -19,14 +19,15 @@
   "dependencies": {
     "@mozilla/readability": "^0.4.2",
     "@postlight/mercury-parser": "^2.2.1",
+    "@tensorflow/tfjs-node": "^4.2.0",
     "cheerio": "^1.0.0-rc.12",
     "jsdom": "^21.1.0",
-    "request": "^2.88.2",
-    "@tensorflow/tfjs-node": "^4.2.0",
     "micromodal": "^0.4.10",
     "mongoose": "^6.8.3",
     "mosha-vue-toastify": "^1.0.23",
     "natural": "^6.1.4",
+    "puppeteer": "^19.7.0",
+    "request": "^2.88.2",
     "socket.io": "^4.5.2",
     "socket.io-client": "^4.5.3"
   },

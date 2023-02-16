@@ -3,7 +3,7 @@ import { Parser } from "~/server/models/parser.model";
 export default defineEventHandler(async (event) => {
   try {
     const { parserId, parserStatus, setAll } = await readBody(event);
-    console.log(parserId, parserStatus, setAll);
+
     if (setAll === true) {
       const res = await Parser.updateMany(
         {},

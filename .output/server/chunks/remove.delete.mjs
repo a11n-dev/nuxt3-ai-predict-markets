@@ -1,5 +1,5 @@
 import { defineEventHandler, readBody } from 'h3';
-import { p as parser_model } from './nitro/node-server.mjs';
+import { a as parsed_article_model, p as parser_model } from './nitro/node-server.mjs';
 import 'node-fetch-native/polyfill';
 import 'node:http';
 import 'node:https';
@@ -15,10 +15,8 @@ import 'unstorage';
 import 'defu';
 import 'radix3';
 import 'mongoose';
-import 'request';
-import 'cheerio';
+import 'puppeteer';
 import '@postlight/mercury-parser';
-import '@mozilla/readability';
 import 'jsdom';
 import 'node:fs';
 import 'node:url';
@@ -32,6 +30,7 @@ const remove_delete = defineEventHandler(async (event) => {
     const { parserId } = await readBody(event);
     if (!parserId)
       return "Need parser id to delete";
+    await parsed_article_model.ParsedArticle.deleteMany({ parserId });
     const response = await parser_model.Parser.findByIdAndDelete(parserId);
     return response;
   } catch (error) {

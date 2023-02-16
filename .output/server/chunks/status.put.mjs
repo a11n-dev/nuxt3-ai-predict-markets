@@ -15,10 +15,8 @@ import 'unstorage';
 import 'defu';
 import 'radix3';
 import 'mongoose';
-import 'request';
-import 'cheerio';
+import 'puppeteer';
 import '@postlight/mercury-parser';
-import '@mozilla/readability';
 import 'jsdom';
 import 'node:fs';
 import 'node:url';
@@ -30,7 +28,6 @@ import 'natural';
 const status_put = defineEventHandler(async (event) => {
   try {
     const { parserId, parserStatus, setAll } = await readBody(event);
-    console.log(parserId, parserStatus, setAll);
     if (setAll === true) {
       const res = await parser_model.Parser.updateMany(
         {},

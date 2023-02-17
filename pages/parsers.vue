@@ -1,6 +1,6 @@
 <template>
-  <div class="page relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1">
-    <div class="absolute right-6 top-6 flex flex-col gap-2 z-10">
+  <div class="page relative h-full w-full transition-width overflow-y-scroll">
+    <div class="fixed right-6 top-6 flex flex-col gap-2 z-10">
       <button
         class="w-12 h-12 bg-white rounded-xl flex items-center justify-center"
         @click.prevent="MicroModal.show('modal-create-parser', { onClose: () => getParsers() })"
@@ -37,20 +37,20 @@
     </div>
 
     <div
-      class="pt-10 w-full mx-auto max-w-5xl"
+      class="py-10 w-full mx-auto max-w-5xl grid grid-cols-2 gap-4"
       v-if="parsers"
     >
       <div
-        class="relative bg-[#444653] rounded-2xl mb-4"
+        class="relative bg-[#444653] rounded-2xl"
         v-for="parser in parsers"
         :key="parser._id"
       >
-        <div class="flex justify-between px-6 pt-6 pb-4">
+        <div class="flex justify-between p-4">
           <div>
-            <h3 class="text-xl font-semibold mb-2">{{ parser.name }}</h3>
+            <h3 class="text-lg font-semibold mb-2">{{ parser.name }}</h3>
 
             <a
-              class="text-md text-blue-400 hover:opacity-80"
+              class="text-sm text-blue-400 hover:opacity-80"
               :href="parser.link"
               target="_blank"
               >{{ parser.link }}</a
@@ -85,8 +85,8 @@
           </div>
         </div>
 
-        <div class="flex justify-end pt-2 pb-2 px-6 bg-dark rounded-b-2xl">
-          <ul class="metadata text-sm flex items-center gap-4">
+        <div class="flex justify-end pt-2 pb-2 pr-4 bg-dark rounded-b-xl">
+          <ul class="metadata text-xs flex items-center gap-2">
             <li>
               24h: <b>{{ parser.statistics.parsed_24h }}</b>
             </li>
@@ -102,7 +102,7 @@
             </li>
             <li class="flex items-center">
               <span
-                class="block w-3 h-3 rounded-full"
+                class="block w-2 h-2 rounded-full"
                 :class="{ 'bg-green-600': parser.status, 'bg-red-600': !parser.status }"
               ></span>
             </li>

@@ -134,7 +134,7 @@ async function createParser() {
       createToast(
         {
           title: "Success",
-          description: "Зarser successfully created.",
+          description: "Parser successfully created.",
         },
         { type: "success", showIcon: true, transition: "slide" }
       );

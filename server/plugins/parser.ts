@@ -9,7 +9,7 @@ let options = {};
 // let chromium: any;
 
 import puppeteer from "puppeteer-core";
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
 
 export default defineNitroPlugin(async () => {
   try {
@@ -22,7 +22,7 @@ export default defineNitroPlugin(async () => {
       options = {
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
+        executablePath: await chromium.executablePath("https://www.example.com/chromiumPack.tar"),
         headless: chromium.headless,
         ignoreHTTPSErrors: true,
       };

@@ -10,6 +10,8 @@ let chromium: any;
 
 export default defineNitroPlugin(async () => {
   try {
+    console.log('env')
+    console.log('env2', process.env.NODE_ENV)
     if (process.env.NODE_ENV !== "production") {
       console.log("chrom");
       puppeteer = await import("puppeteer-core");

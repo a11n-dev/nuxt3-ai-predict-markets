@@ -10,10 +10,9 @@ let chromium: any;
 
 export default defineNitroPlugin(async () => {
   try {
-    console.log('env')
-    console.log('env2', process.env.NODE_ENV)
     if (process.env.NODE_ENV !== "production") {
-      console.log("chrom");
+      return
+    } else {
       puppeteer = await import("puppeteer-core");
       chromium = await import("@sparticuz/chromium-min");
 
@@ -24,11 +23,7 @@ export default defineNitroPlugin(async () => {
         headless: chromium.headless,
         ignoreHTTPSErrors: true,
       };
-    } else {
-      puppeteer = await import("puppeteer");
     }
-
-    if (process.env.NODE_ENV !== "production") return;
 
     console.log("Parsing cycle started...");
     parseArticles(await Parser.find({ status: true }));

@@ -13,8 +13,9 @@ import puppeteer from "puppeteer-core";
 import chromium from '@sparticuz/chromium-min';
 
 export default defineNitroPlugin(async () => {
+  console.log(await chromium.executablePath("./utils/opt/chromium/"))
   try {
-    if (process.cwd(), process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== "production") {
       return
     } else {
       // puppeteer = await import("puppeteer-core");
@@ -23,7 +24,7 @@ export default defineNitroPlugin(async () => {
       options = {
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath("https://saajdkasdkwe.s3.amazonaws.com/chromium-v110.0.1-pack.tar"),
+        executablePath: await chromium.executablePath("./utils/opt/chromium/"),
         headless: chromium.headless,
         ignoreHTTPSErrors: true,
       };

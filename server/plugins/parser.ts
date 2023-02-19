@@ -1,34 +1,32 @@
-import puppeteer from "puppeteer";
 import Mercury from "@postlight/mercury-parser";
 import { JSDOM } from "jsdom";
 
 import { Parser } from "~/server/models/parser.model";
 import { ParsedArticle } from "~/server/models/parsed.article.model";
 
-// import * as fs from "fs";
-
-// const articles = JSON.parse(fs.readFileSync("./utils/parsed-test.json"));
+let options: object;
+let puppeteer: any;
+let chromium: any;
 
 export default defineNitroPlugin(async () => {
   try {
-    // for (const [index, article] of articles.entries()) {
-    //   if (await ParsedArticle.findOne({ link: article.url })) {
-    //     console.log('Duplicate article at', index, 'of', articles.length - 1)
-    //     continue;
-    //   }
+    if (process.env.NODE_ENV !== "production") {
+      console.log("chrom");
+      puppeteer = await import("puppeteer-core");
+      chromium = await import("@sparticuz/chromium-min");
 
-    //   await ParsedArticle.create({
-    //     parserId: '63ecb31a953adad3945c219a',
-    //     title: article.title,
-    //     content: article.content,
-    //     excerpt: article.excerpt,
-    //     date: article.date_published,
-    //     link: article.url,
-    //   })
-    //   console.log('Added article at', index, 'of', articles.length - 1)
-    // }
+      options = {
+        args: [...chromium.args, "--no-sandbox", "--disable-setuid-sandbox"],
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+        ignoreHTTPSErrors: true,
+      };
+    } else {
+      puppeteer = await import("puppeteer");
+    }
 
-    // if (process.env.NODE_ENV !== "production") return;
+    if (process.env.NODE_ENV !== "production") return;
 
     console.log("Parsing cycle started...");
     parseArticles(await Parser.find({ status: true }));
@@ -51,7 +49,7 @@ async function parseArticles(resources: Array<any>) {
   if (resources.length === 0) return;
 
   // Launch headless Chrome
-  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
+  const browser = await puppeteer.launch(options);
   const page = await browser.newPage();
 
   try {
@@ -79,7 +77,7 @@ async function parseArticles(resources: Array<any>) {
 
           link = await page.$eval("a.ccMCCm", (link) => link.href);
         }
-        
+
         // Pass article if exist in db
         const originUrl = new URL(link);
 

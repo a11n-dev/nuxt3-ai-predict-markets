@@ -28,12 +28,15 @@ export default defineNitroPlugin(async () => {
     //   console.log('Added article at', index, 'of', articles.length - 1)
     // }
 
-    if (process.env.NODE_ENV !== "production") return;
+    // if (process.env.NODE_ENV !== "production") return;
 
-    setInterval(async () => {
-      console.log("Parsing cycle started...");
-      parseArticles(await Parser.find({ status: true }));
-    }, 1000 * 60 * 30);
+    console.log("Parsing cycle started...");
+    parseArticles(await Parser.find({ status: true }));
+
+    // setInterval(async () => {
+    //   console.log("Parsing cycle started...");
+    //   parseArticles(await Parser.find({ status: true }));
+    // }, 1000 * 60 * 30);
   } catch (error) {
     console.error(error);
   }

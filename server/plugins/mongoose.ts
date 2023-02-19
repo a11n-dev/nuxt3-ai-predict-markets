@@ -7,8 +7,8 @@ export default defineNitroPlugin(async () => {
 
   try {
     // Connect to mongodb
-    // await mongoose.connect(config.mgdbUri);
-    await mongoose.connect('mongodb+srv://admin:ifS9WvZyWBzavpzv@cluster-ai.hthbfjo.mongodb.net/ai');
+    await mongoose.connect(config.mgdbUri);
+
     console.log("DB connection established.");
   } catch (err) {
     console.error("DB connection failed.", err);

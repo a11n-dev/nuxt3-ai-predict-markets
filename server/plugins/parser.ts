@@ -22,7 +22,7 @@ export default defineNitroPlugin(async () => {
       options = {
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath("~/utils/opt/chromium/"),
+        executablePath: await chromium.executablePath("@/utils/opt/chromium/"),
         headless: chromium.headless,
         ignoreHTTPSErrors: true,
       };

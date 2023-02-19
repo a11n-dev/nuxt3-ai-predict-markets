@@ -13,7 +13,7 @@ import chromium from '@sparticuz/chromium';
 
 export default defineNitroPlugin(async () => {
   try {
-    if (process.env.NODE_ENV == "production") {
+    if (process.env.NODE_ENV !== "production") {
       return
     } else {
       // puppeteer = await import("puppeteer-core");

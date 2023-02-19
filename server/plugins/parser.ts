@@ -4,22 +4,25 @@ import { JSDOM } from "jsdom";
 import { Parser } from "~/server/models/parser.model";
 import { ParsedArticle } from "~/server/models/parsed.article.model";
 
-let options: object;
-let puppeteer: any;
-let chromium: any;
+let options = {};
+// let puppeteer: any;
+// let chromium: any;
+
+import puppeteer from "puppeteer-core";
+import chromium from '@sparticuz/chromium';
 
 export default defineNitroPlugin(async () => {
   try {
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV == "production") {
       return
     } else {
-      puppeteer = await import("puppeteer-core");
-      chromium = await import("@sparticuz/chromium-min");
+      // puppeteer = await import("puppeteer-core");
+      // chromium = await import("@sparticuz/chromium-min");
 
       options = {
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath("/opt/chromium"),
+        executablePath: await chromium.executablePath(),
         headless: chromium.headless,
         ignoreHTTPSErrors: true,
       };

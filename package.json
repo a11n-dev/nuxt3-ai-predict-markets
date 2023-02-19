@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@postlight/mercury-parser": "^2.2.1",
-    "@sparticuz/chromium-min": "^110.0.1",
+    "@sparticuz/chromium": "^110.0.1",
     "@tensorflow/tfjs-node": "^4.2.0",
     "jsdom": "^21.1.0",
     "micromodal": "^0.4.10",

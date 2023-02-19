@@ -17,7 +17,7 @@ export default defineNitroPlugin(async () => {
       chromium = await import("@sparticuz/chromium-min");
 
       options = {
-        args: [...chromium.args, "--no-sandbox", "--disable-setuid-sandbox"],
+        args: chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath(),
         headless: chromium.headless,

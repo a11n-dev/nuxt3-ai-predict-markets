@@ -1,3 +1,4 @@
+import puppeteer from "puppeteer";
 import Mercury from "@postlight/mercury-parser";
 import { JSDOM } from "jsdom";
 
@@ -5,33 +6,14 @@ import { Parser } from "~/server/models/parser.model";
 import { ParsedArticle } from "~/server/models/parsed.article.model";
 
 let options = {};
-// let puppeteer: any;
-// let chromium: any;
-
-import puppeteer from "puppeteer-core";
-import chromium from '@sparticuz/chromium-min';
 
 export default defineNitroPlugin(async () => {
   try {
-    if (process.env.NODE_ENV !== "production") {
-      // puppeteer = await import('puppeteer')
+    if (process.env.NODE_ENV !== "production") return;
 
-      // console.log("Parsing cycle started...");
-      // parseArticles(await Parser.find({ status: true }));
-
-      return;
-    } else {
-      // puppeteer = await import("puppeteer-core");
-      // chromium = await import("@sparticuz/chromium-min");
-
-      options = {
-        args: [...chromium.args, "--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath("./utils/opt/chromium/"),
-        headless: chromium.headless,
-        ignoreHTTPSErrors: true,
-      };
-    }
+    options = {
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    };
 
     setInterval(async () => {
       console.log("Parsing cycle started...");

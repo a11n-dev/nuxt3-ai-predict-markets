@@ -6,20 +6,24 @@ import { ParsedArticle } from "~/server/models/parsed.article.model";
 
 
 let options = {};
-// let puppeteer: any;
-// let chromium: any;
+let puppeteer: any;
+let chromium: any;
 
-import puppeteer from "puppeteer-core";
-import chromium from '@sparticuz/chromium-min';
+// import puppeteer from "puppeteer-core";
+// import chromium from '@sparticuz/chromium-min';
 
 export default defineNitroPlugin(async () => {
-  console.log(await chromium.executablePath("./utils/opt/chromium/"))
   try {
     if (process.env.NODE_ENV !== "production") {
+      puppeteer = await import('puppeteer')
+      
+      console.log("Parsing cycle started...");
+      parseArticles(await Parser.find({ status: true }));
+      
       return
     } else {
-      // puppeteer = await import("puppeteer-core");
-      // chromium = await import("@sparticuz/chromium-min");
+      puppeteer = await import("puppeteer-core");
+      chromium = await import("@sparticuz/chromium-min");
 
       options = {
         args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
@@ -30,13 +34,10 @@ export default defineNitroPlugin(async () => {
       };
     }
 
-    console.log("Parsing cycle started...");
-    parseArticles(await Parser.find({ status: true }));
-
-    // setInterval(async () => {
-    //   console.log("Parsing cycle started...");
-    //   parseArticles(await Parser.find({ status: true }));
-    // }, 1000 * 60 * 30);
+    setInterval(async () => {
+      console.log("Parsing cycle started...");
+      parseArticles(await Parser.find({ status: true }));
+    }, 1000 * 60 * 30);
   } catch (error) {
     console.error(error);
   }

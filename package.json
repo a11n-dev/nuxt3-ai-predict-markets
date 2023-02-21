@@ -30,6 +30,6 @@
     "socket.io-client": "^4.5.3"
   },
   "engines": {
-    "node": "18.x"
+    "node": "16.x"
   }
 }

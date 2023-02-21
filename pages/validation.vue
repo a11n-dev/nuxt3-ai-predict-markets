@@ -134,7 +134,7 @@ const prompt = ref(null);
 
 const articlesListLength = ref(0);
 const pagination = ref({
-  perPage: 100,
+  perPage: 50,
   page: 1,
   pageCount: 0,
 });

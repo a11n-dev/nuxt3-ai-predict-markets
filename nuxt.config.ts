@@ -14,16 +14,7 @@ export default defineNuxtConfig({
 
   vite: {
     resolve: {
-      extensions: [
-        ".mjs",
-        ".js",
-        ".ts",
-        ".jsx",
-        ".tsx",
-        ".json",
-        ".vue",
-        ".node"
-      ]
-    }
-  }
+      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue", ".node"],
+    },
+  },
 });

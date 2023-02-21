@@ -1,7 +1,7 @@
 <template>
   <div
     class="page relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1"
-    v-if="article || articleList"
+    v-if="currentView == 'ChatGPT' || article || articleList"
   >
     <div class="pt-10 w-full h-full mx-auto max-w-5xl">
       <div class="flex justify-between items-center mb-6">
@@ -24,9 +24,21 @@
         </div>
       </div>
 
+      <Pagination
+        v-if="currentView == 'ChatGPT' && prompt"
+        :pageCount="Math.ceil(articlesListLength / pagination.perPage)"
+        :postCount="articlesListLength"
+        :page="pagination.page"
+        :perPage="pagination.perPage"
+        @changePage="
+          pagination.page = $event;
+          getValidationItem();
+        "
+      />
+
       <div
         class="h-1/5"
-        v-if="currentView === 'Single View'"
+        v-if="currentView === 'Single View' && article"
       >
         <div class="p-6 bg-[#444653] rounded-3xl overflow-y-auto mb-4">
           <h3 class="text-xl mb-2">{{ article.title }}</h3>
@@ -57,7 +69,12 @@
 
       <TableView
         :articleList="articleList"
-        v-else
+        v-else-if="currentView == 'Table View' && articleList"
+      />
+
+      <ChatGPT
+        :prompt="prompt"
+        v-else-if="currentView == 'ChatGPT' && prompt"
       />
     </div>
 
@@ -101,6 +118,9 @@ const views = ref([
   {
     name: "Table View",
   },
+  {
+    name: "ChatGPT",
+  },
 ]);
 
 const article = ref(null);
@@ -110,19 +130,37 @@ const articleCount = ref(0);
 
 const prediction = ref("");
 
+const prompt = ref(null);
+
+const articlesListLength = ref(0);
+const pagination = ref({
+  perPage: 100,
+  page: 1,
+  pageCount: 0,
+});
+
 getValidationItem();
 
 async function getValidationItem() {
   const { data: articleData } = await useLazyFetch("/api/articles/validation-v2", {
     method: "post",
-    body: { userID: localStorage?.getItem("aiUserUID"), tableView: currentView.value === "Table View" },
+    body: { userID: localStorage?.getItem("aiUserUID"), tableView: currentView.value === "Table View", chatGPT: currentView.value === "ChatGPT", page: pagination.value.page, perPage: pagination.value.perPage },
   });
 
   watch(articleData, (newArticle) => {
     if (currentView.value === "Single View") {
       article.value = newArticle;
-    } else {
+    } else if (currentView.value === "Table View") {
       articleList.value = newArticle;
+    } else if (currentView.value === "ChatGPT") {
+      prompt.value = `Below you will find headlines and descriptions of articles related to the crypto market and bitcoin separated by paragraphs and having an index. In order to train an artificial intelligence model that can determine which news will affect the crypto market and bitcoin price and which will not. Which of these news articles should give the artificial intelligence model as those that can hypothetically affect the cryptocurrency market and the pattern of such news and what news should not be given to an AI model for training. Parse this list entries and return me only the indexes of articles. Split indexes with spaces. The answer should be like this example: "2 5 7 32 154"`;
+
+      articlesListLength.value = newArticle.postCount;
+      pagination.value.pageCount = newArticle.pageCount;
+
+      newArticle.list.forEach((article, index) => {
+        prompt.value += `<br><br> ${index + (pagination.value.page - 1) * 100}. ${article.title} <br> ${article.excerpt}`;
+      });
     }
 
     // predict(article.value.text);

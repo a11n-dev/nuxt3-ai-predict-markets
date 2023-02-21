@@ -159,7 +159,7 @@ async function getValidationItem() {
       pagination.value.pageCount = newArticle.pageCount;
 
       newArticle.list.forEach((article, index) => {
-        prompt.value += `<br><br> ${index + (pagination.value.page - 1) * 100}. ${article.title} <br> ${article.excerpt}`;
+        prompt.value += `<br><br> ${index + (pagination.value.page - 1) * pagination.value.perPage}. ${article.title} <br> ${article.excerpt}`;
       });
     }
 
